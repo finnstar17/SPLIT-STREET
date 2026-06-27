@@ -20,7 +20,7 @@ func _process(delta):
 	bars_node.position += speed * delta
 
 	for bar in bars:
-		if bar.position.z + bars_node.position.z >= bar_spacing * 0.5:
+		if bar.position.z + bars_node.position.z >= bar_spacing:
 			BarManager.add_bar()
 			remove_bar(bar)
 			add_bar()
