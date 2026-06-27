@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://rvlluf06gwm5"]
+
+[ext_resource type="Script" uid="uid://bv5cbnb1n7iu5" path="res://bar_scene.gd" id="1_1k8jw"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uh25k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uh25k"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.1254902)
+
+[node name="Bars" type="Node3D" unique_id=2009143279]
+script = ExtResource("1_1k8jw")
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=954948486]
+transform = Transform3D(-4.3711387e-10, -0.9, 0, -4.3711387e-10, 1.7196169e-15, -0.01, 0.01, -3.934025e-08, -4.3711387e-10, 0, 0.6, 0)
+mesh = SubResource("CylinderMesh_uh25k")
+surface_material_override/0 = SubResource("StandardMaterial3D_uh25k")
+
+[node name="Bottom" type="MeshInstance3D" parent="." unique_id=1186649702]
+transform = Transform3D(-4.3711387e-10, -0.9, 0, -4.3711387e-10, 1.7196169e-15, -0.01, 0.01, -3.934025e-08, -4.3711387e-10, 0, -0.6, 0)
+mesh = SubResource("CylinderMesh_uh25k")
+surface_material_override/0 = SubResource("StandardMaterial3D_uh25k")
