@@ -1,0 +1,85 @@
+{
+    "title": "SUGAR RUSH",
+    "artist": "AZALI",
+    "file": "res://music_related/music/SUGAR RUSH.mp3",
+    "bpm": 175,
+    "spacing": 4.0,
+    "offset": 0.43,
+    "note_data": {  
+        "1": {
+            "notes": [
+                {"pos": 0.0, "line": 1, "plane": 1},
+                {"pos": 2.0, "line": 3, "plane": 2},
+                {"pos": 2.0, "line": 4, "plane": 2},
+                {"pos": 5.0, "line": 4, "plane": 1},
+                {"pos": 6.0, "line": 1, "plane": 2},
+                {"pos": 6.0, "line": 2, "plane": 2}
+            ]
+        },
+        "2": {
+            "notes": [
+                {"pos": 0.0, "line": 4, "plane": 2},
+                {"pos": 2.0, "line": 1, "plane": 1},
+                {"pos": 2.0, "line": 2, "plane": 1},
+                {"pos": 5.0, "line": 1, "plane": 2},
+                {"pos": 6.0, "line": 3, "plane": 1},
+                {"pos": 6.0, "line": 4, "plane": 1}
+            ]
+        },
+        "3": {
+            "notes": [
+                {"pos": 0.0, "line": 1, "plane": 1},
+                {"pos": 2.0, "line": 3, "plane": 2},
+                {"pos": 2.0, "line": 4, "plane": 2},
+                {"pos": 5.0, "line": 4, "plane": 1},
+                {"pos": 6.0, "line": 1, "plane": 2},
+                {"pos": 6.0, "line": 2, "plane": 2}
+            ]
+        },
+        "4": {
+            "notes": [
+                {"pos": 0.0, "line": 4, "plane": 2},
+                {"pos": 2.0, "line": 1, "plane": 1},
+                {"pos": 2.0, "line": 2, "plane": 1}
+            ]
+        },
+        "5": {
+            "notes": [
+                {"pos": 0.0, "line": 1, "plane": 1},
+                {"pos": 2.0, "line": 3, "plane": 1},
+                {"pos": 2.0, "line": 3, "plane": 2},
+                {"pos": 5.0, "line": 4, "plane": 1},
+                {"pos": 6.0, "line": 2, "plane": 1},
+                {"pos": 6.0, "line": 2, "plane": 2}
+            ]
+        },
+        "6": {
+            "notes": [
+                {"pos": 0.0, "line": 1, "plane": 2},
+                {"pos": 2.0, "line": 3, "plane": 1},
+                {"pos": 2.0, "line": 3, "plane": 2},
+                {"pos": 5.0, "line": 4, "plane": 2},
+                {"pos": 6.0, "line": 2, "plane": 1},
+                {"pos": 6.0, "line": 2, "plane": 2}
+            ]
+        },
+        "7": {
+            "notes": [
+                {"pos": 0.0, "line": 2, "plane": 1},
+                {"pos": 2.0, "line": 4, "plane": 1},
+                {"pos": 2.0, "line": 4, "plane": 2},
+                {"pos": 5.0, "line": 3, "plane": 1},
+                {"pos": 6.0, "line": 1, "plane": 1},
+                {"pos": 6.0, "line": 1, "plane": 2}
+            ]
+        },
+        "8": {
+            "notes": [
+                {"pos": 0.0, "line": 2, "plane": 2},
+                {"pos": 2.0, "line": 4, "plane": 1},
+                {"pos": 2.0, "line": 4, "plane": 2},
+                {"pos": 5.0, "line": 3, "plane": 1}
+            ]
+        }
+    }
+}

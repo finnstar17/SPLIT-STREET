@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mc1ncs425a3v"
+path="res://.godot/imported/SUGAR RUSH.mp3-7909659ff1454b3ab5732e7583338107.mp3str"
+
+[deps]
+
+source_file="res://music_related/music/SUGAR RUSH.mp3"
+dest_files=["res://.godot/imported/SUGAR RUSH.mp3-7909659ff1454b3ab5732e7583338107.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
