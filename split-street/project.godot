@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 ChartLoader="*uid://cg42s0ov7lduv"
 SongManager="*uid://lsvnmacwljkc"
 BarManager="*uid://bv5dvpwswl3it"
+AccuracyManager="*uid://csp2uwu33hmeh"
 
 [input]
 

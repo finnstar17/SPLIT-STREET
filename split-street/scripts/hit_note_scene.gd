@@ -14,6 +14,12 @@ func _ready():
 func _process(_delta: float) -> void:
 	collect()
 
+	if not is_hit:
+		if global_position.z < -4.6:
+			hide()
+		else:
+			show()
+
 func _set_position():
 	var x_pos : float
 	var y_pos : float
@@ -53,7 +59,8 @@ func collect():
 				if distance <= 0.08:
 					level = 3
 
-				print(level)
+				AccuracyManager.set_accuracy(level)
+				AccuracyManager.add_combo()
 
 				hide()
 

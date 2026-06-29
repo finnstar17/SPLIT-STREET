@@ -22,8 +22,5 @@ func add_notes(chart_data):
 				note_instance.plane = note.plane
 				note_instance.pos = float(note.pos) * note_scale
 				add_child(note_instance)
-	else:
-		if SongManager.current_song:
-			print(SongManager.current_song)
 
 # my bad i thought this scrolled the thing but i forgot because i didnt track that well
