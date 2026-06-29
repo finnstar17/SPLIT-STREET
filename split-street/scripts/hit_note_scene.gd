@@ -5,6 +5,7 @@ extends Node3D
 var pos = 0
 var is_hit = false
 var is_collected = false
+var level = 0
 var picker : Node3D
 
 func _ready():
@@ -42,15 +43,26 @@ func collect():
 			if picker.is_collecting:
 				is_collected = true
 				picker.is_collecting = false
+
+				var distance = abs(global_position.z + 0.8)
+
+				if distance <= 0.16:
+					level = 1
+				if distance <= 0.12:
+					level = 2
+				if distance <= 0.08:
+					level = 3
+
+				print(level)
+
 				hide()
 
-func _on_area_entered(area: Area3D) -> void:
+func _on_area_3d_entered(area: Area3D) -> void:
 	if area.is_in_group("picker"):
 		is_hit = true
 		picker = area.get_parent()
 
-
-func _on_area_exited(area: Area3D) -> void:
+func _on_area_3d_exited(area: Area3D) -> void:
 	if area.is_in_group("picker"):
 		is_hit = false
 		picker = null

@@ -64,3 +64,7 @@ line = 8
 
 [node name="Bars" parent="." unique_id=2009143279 instance=ExtResource("2_duycn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=158287086]
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D" unique_id=1703768266]
