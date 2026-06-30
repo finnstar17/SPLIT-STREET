@@ -1,13 +1,13 @@
 extends Node3D
 
 var note_scene = preload("res://scenes/hit_note_scene.tscn")
-var current_bar = BarManager.current_bar
+var current_bar = MainLoader.current_bar
 
 var note_scale = 0.5
 
 func _ready():
-	var current_song = SongManager.current_song
-	var chart_data = ChartLoader.load_chart(current_song)
+	var current_song = MainLoader.current_song
+	var chart_data = MainLoader.load_chart(current_song)
 	add_notes(chart_data)
 
 func add_notes(chart_data):

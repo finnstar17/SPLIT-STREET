@@ -17,10 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ChartLoader="*uid://cg42s0ov7lduv"
-SongManager="*uid://lsvnmacwljkc"
-BarManager="*uid://bv5dvpwswl3it"
-AccuracyManager="*uid://csp2uwu33hmeh"
+MainLoader="*uid://b1hpn1xdctdxs"
 
 [input]
 

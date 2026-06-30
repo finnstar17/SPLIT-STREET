@@ -18,10 +18,10 @@ func _ready() -> void:
 	load_song(sugar_rush)
 
 func load_song(song_path):
-	var chart_data = ChartLoader.load_chart(song_path)
+	var chart_data = MainLoader.load_chart(song_path)
 	var song = chart_data["file"]
 	audio = load(song)
-	SongManager.set_current_song(song_path)
+	MainLoader.set_current_song(song_path)
 
 	calc_params(chart_data["bpm"], chart_data["spacing"], chart_data["offset"])
 

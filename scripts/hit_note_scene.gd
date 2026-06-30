@@ -59,8 +59,8 @@ func collect():
 				if distance <= 0.08:
 					level = 3
 
-				AccuracyManager.set_accuracy(level)
-				AccuracyManager.add_combo()
+				MainLoader.set_accuracy(level)
+				MainLoader.add_note_number()
 
 				hide()
 

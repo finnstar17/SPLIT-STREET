@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c5k4nlfprk61o"]
+
+[ext_resource type="PackedScene" uid="uid://b72udcj6j8bv7" path="res://scenes/note_scene.tscn" id="1_0y7yf"]
+[ext_resource type="Script" uid="uid://b0smphcpxqph2" path="res://scripts/rhythm_scene.gd" id="1_y55il"]
+[ext_resource type="PackedScene" uid="uid://rvlluf06gwm5" path="res://scenes/bar_scene.tscn" id="2_duycn"]
+[ext_resource type="PackedScene" uid="uid://cmw5rsmlgssvx" path="res://scenes/hit_billboard.tscn" id="4_ne5c5"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fs455"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs455"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0.5019608)
+
+[node name="RhythmScene" type="Node3D" unique_id=241672643]
+script = ExtResource("1_y55il")
+
+[node name="BottomPlane" type="MeshInstance3D" parent="." unique_id=229248049]
+transform = Transform3D(0.9, 0, 0, 0, 2, 0, 0, 0, 2.3, 0, -0.6, -2.3)
+mesh = SubResource("PlaneMesh_fs455")
+surface_material_override/0 = SubResource("StandardMaterial3D_fs455")
+
+[node name="TopPlane" type="MeshInstance3D" parent="." unique_id=1028167986]
+transform = Transform3D(0.9, 0, 0, 0, -2, 3.4729032e-07, 0, -3.019916e-07, -2.3, 0, 0.6, -2.3)
+mesh = SubResource("PlaneMesh_fs455")
+surface_material_override/0 = SubResource("StandardMaterial3D_fs455")
+
+[node name="BottomNotes" type="Node3D" parent="." unique_id=343159961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+
+[node name="D_Input" parent="BottomNotes" unique_id=330047809 instance=ExtResource("1_0y7yf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.6, 0)
+line = 1
+
+[node name="F_Input" parent="BottomNotes" unique_id=1716029643 instance=ExtResource("1_0y7yf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.6, 0)
+line = 2
+
+[node name="J_Input" parent="BottomNotes" unique_id=373879474 instance=ExtResource("1_0y7yf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.6, 0)
+line = 3
+
+[node name="K_Input" parent="BottomNotes" unique_id=843280907 instance=ExtResource("1_0y7yf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.6, 0)
+line = 4
+
+[node name="TopNotes" type="Node3D" parent="." unique_id=858570930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+
+[node name="E_Input" parent="TopNotes" unique_id=2114312777 instance=ExtResource("1_0y7yf")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -0.6, 0.6, 0)
+line = 5
+
+[node name="R_Input" parent="TopNotes" unique_id=638945944 instance=ExtResource("1_0y7yf")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -0.2, 0.6, 0)
+line = 6
+
+[node name="U_Input" parent="TopNotes" unique_id=1741345537 instance=ExtResource("1_0y7yf")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0.2, 0.6, 0)
+line = 7
+
+[node name="I_Input" parent="TopNotes" unique_id=103204939 instance=ExtResource("1_0y7yf")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0.6, 0.6, 0)
+line = 8
+
+[node name="Bars" parent="." unique_id=2009143279 instance=ExtResource("2_duycn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+
+[node name="BillboardNode" parent="." unique_id=900596795 instance=ExtResource("4_ne5c5")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, -1)
