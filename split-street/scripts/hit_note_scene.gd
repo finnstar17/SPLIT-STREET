@@ -14,11 +14,13 @@ func _ready():
 func _process(_delta: float) -> void:
 	collect()
 
-	if not is_hit:
+	if not is_collected:
 		if global_position.z < -4.6:
 			hide()
 		else:
 			show()
+		if global_position.z > 0:
+			MainLoader.set_number("combo", "set", 0)
 
 func _set_position():
 	var x_pos : float
@@ -52,6 +54,11 @@ func collect():
 
 				var distance = abs(global_position.z + 0.8)
 
+				if distance > 0.16:
+					MainLoader.set_number("combo", "set", 0)
+				else:
+					MainLoader.set_number("combo", "add", 0)
+					
 				if distance <= 0.16:
 					level = 1
 				if distance <= 0.12:
@@ -59,8 +66,8 @@ func collect():
 				if distance <= 0.08:
 					level = 3
 
-				MainLoader.set_accuracy(level)
-				MainLoader.add_note_number()
+				MainLoader.set_number("accuracy", "", level)
+				MainLoader.set_number("note_number", "add", 0)
 
 				hide()
 

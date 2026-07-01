@@ -21,7 +21,7 @@ func _process(delta):
 
 	for bar in bars:
 		if bar.position.z + bars_node.position.z >= bar_spacing:
-			MainLoader.add_bar()
+			MainLoader.set_number("bar", "add", 0)
 			remove_bar(bar)
 			add_bar()
 
@@ -38,5 +38,5 @@ func remove_bar(bar):
 
 func add_bars():
 	for i in range(3):
-		MainLoader.add_bar()
+		MainLoader.set_number("bar", "add", 0)
 		add_bar()

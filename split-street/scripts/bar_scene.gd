@@ -21,6 +21,7 @@ func add_notes(chart_data):
 				note_instance.line = note.line
 				note_instance.plane = note.plane
 				note_instance.pos = float(note.pos) * note_scale
+
 				add_child(note_instance)
 
 # my bad i thought this scrolled the thing but i forgot because i didnt track that well

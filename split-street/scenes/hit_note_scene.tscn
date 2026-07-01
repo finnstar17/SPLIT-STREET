@@ -10,9 +10,10 @@ shading_mode = 0
 [sub_resource type="BoxMesh" id="BoxMesh_v3ku1"]
 flip_faces = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3wik"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xy53"]
+blend_mode = 3
 shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(0.7411765, 0.7764706, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7xy53"]
 
@@ -25,9 +26,9 @@ mesh = SubResource("BoxMesh_2btga")
 surface_material_override/0 = SubResource("StandardMaterial3D_2btga")
 
 [node name="BlackOutline" type="MeshInstance3D" parent="NoteMesh" unique_id=197676100]
-transform = Transform3D(1.0666665, 0, 0, 0, 2, 0, 0, 0, 1.25, 0, 0, 0)
+transform = Transform3D(1.167, 0, 0, 0, 3, 0, 0, 0, 1.625, 0, 0, 0)
 mesh = SubResource("BoxMesh_v3ku1")
-surface_material_override/0 = SubResource("StandardMaterial3D_d3wik")
+surface_material_override/0 = SubResource("StandardMaterial3D_7xy53")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=695104939]
 

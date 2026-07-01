@@ -8,6 +8,7 @@ var active_note = preload("res://materials/note_materials/active_note_material.t
 
 var is_pressed = false
 var is_collecting = false
+var general_collecting = false
 const ACTION_MAP = {
 	1: "D_Input",
 	2: "F_Input",
@@ -26,10 +27,12 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(ACTION_MAP[line]):
 		is_pressed = true
 		is_collecting = true
+		general_collecting = true
 
 		note_mesh.set_surface_override_material(0, active_note)
 	elif Input.is_action_just_released(ACTION_MAP[line]):
 		is_pressed = false
 		is_collecting = false
+		general_collecting = false
 
 		note_mesh.set_surface_override_material(0, idle_note)

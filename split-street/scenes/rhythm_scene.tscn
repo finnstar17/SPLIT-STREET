@@ -5,25 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://rvlluf06gwm5" path="res://scenes/bar_scene.tscn" id="2_duycn"]
 [ext_resource type="PackedScene" uid="uid://cmw5rsmlgssvx" path="res://scenes/hit_billboard.tscn" id="4_ne5c5"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_fs455"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs455"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 0.5019608)
-
 [node name="RhythmScene" type="Node3D" unique_id=241672643]
 script = ExtResource("1_y55il")
-
-[node name="BottomPlane" type="MeshInstance3D" parent="." unique_id=229248049]
-transform = Transform3D(0.9, 0, 0, 0, 2, 0, 0, 0, 2.3, 0, -0.6, -2.3)
-mesh = SubResource("PlaneMesh_fs455")
-surface_material_override/0 = SubResource("StandardMaterial3D_fs455")
-
-[node name="TopPlane" type="MeshInstance3D" parent="." unique_id=1028167986]
-transform = Transform3D(0.9, 0, 0, 0, -2, 3.4729032e-07, 0, -3.019916e-07, -2.3, 0, 0.6, -2.3)
-mesh = SubResource("PlaneMesh_fs455")
-surface_material_override/0 = SubResource("StandardMaterial3D_fs455")
 
 [node name="BottomNotes" type="Node3D" parent="." unique_id=343159961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
@@ -68,3 +51,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
 
 [node name="BillboardNode" parent="." unique_id=900596795 instance=ExtResource("4_ne5c5")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, -1)
+
+[node name="BottomPlane" type="Node3D" parent="." unique_id=1748099579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -2.6)
+
+[node name="TopPlane" type="Node3D" parent="." unique_id=1483073853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -2.3)
