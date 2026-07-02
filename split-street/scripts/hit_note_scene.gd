@@ -5,6 +5,7 @@ extends Node3D
 var pos = 0
 var is_hit = false
 var is_collected = false
+var missed = false
 var level = 0
 var picker : Node3D
 
@@ -19,8 +20,9 @@ func _process(_delta: float) -> void:
 			hide()
 		else:
 			show()
-		if global_position.z > 0:
-			MainLoader.set_number("combo", "set", 0)
+		if global_position.z > 0 and missed == false:
+			missed = true
+			MainLoader.current_combo = 0
 
 func _set_position():
 	var x_pos : float
@@ -55,10 +57,10 @@ func collect():
 				var distance = abs(global_position.z + 0.8)
 
 				if distance > 0.16:
-					MainLoader.set_number("combo", "set", 0)
+					MainLoader.current_combo = 0
 				else:
-					MainLoader.set_number("combo", "add", 0)
-					
+					MainLoader.current_combo += 1
+
 				if distance <= 0.16:
 					level = 1
 				if distance <= 0.12:
@@ -66,8 +68,8 @@ func collect():
 				if distance <= 0.08:
 					level = 3
 
-				MainLoader.set_number("accuracy", "", level)
-				MainLoader.set_number("note_number", "add", 0)
+				MainLoader.current_accuracy = level
+				MainLoader.current_note_number += 1
 
 				hide()
 

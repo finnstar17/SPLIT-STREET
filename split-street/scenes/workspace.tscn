@@ -6,21 +6,14 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wjago"]
 flip_faces = true
-radial_segments = 4
+radial_segments = 5
+rings = 0
 cap_top = false
 cap_bottom = false
 
-[sub_resource type="Gradient" id="Gradient_wjago"]
-colors = PackedColorArray(0.19607843, 0.39607844, 1, 1, 0.60784316, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cnvne"]
-gradient = SubResource("Gradient_wjago")
-fill_from = Vector2(1, 0)
-fill_to = Vector2(1, 0.5)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thvsl"]
 shading_mode = 0
-albedo_texture = SubResource("GradientTexture2D_cnvne")
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="Workspace3D" type="Node3D" unique_id=1471944816]
 script = ExtResource("1_a61m0")
@@ -28,13 +21,14 @@ script = ExtResource("1_a61m0")
 [node name="RhythmScene" parent="." unique_id=241672643 instance=ExtResource("1_nf4vs")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1017732481]
-fov = 97.5
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+fov = 90.0
 
 [node name="Music" parent="." unique_id=1534901998 instance=ExtResource("2_cn5mv")]
 
 [node name="Skybox" type="Node3D" parent="." unique_id=1346251545]
 
 [node name="SkyGradient" type="MeshInstance3D" parent="Skybox" unique_id=959556197]
-transform = Transform3D(32, 0, 0, 0, 2.4, 0, 0, 0, 8, 0, 2.4, 0)
+transform = Transform3D(32, 0, 0, 0, 4.8, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("CylinderMesh_wjago")
 surface_material_override/0 = SubResource("StandardMaterial3D_thvsl")

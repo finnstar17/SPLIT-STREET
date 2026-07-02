@@ -7,25 +7,7 @@ var current_accuracy : int
 var current_note_number = 0
 var current_combo = 0
 var current_bar = 0
-
-func set_number(type_object : String, type_set : String, number : int):
-	match type_object:
-		"bar":
-			match type_set:
-				"set":
-					current_bar = number
-				"add":
-					current_bar += 1
-		"accuracy":
-			current_accuracy = number
-		"note_number":
-			current_note_number += 1
-		"combo":
-			match type_set:
-				"set":
-					current_combo = 0
-				"add":
-					current_combo += 1
+var bar_detected = 0
 
 # song loader
 func set_current_song(path : String):

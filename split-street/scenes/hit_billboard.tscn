@@ -1,22 +1,21 @@
 [gd_scene format=3 uid="uid://cmw5rsmlgssvx"]
 
-[ext_resource type="Script" uid="uid://lpdlk0uwmkpt" path="res://scripts/hit_billboard.gd" id="1_80rsf"]
+[ext_resource type="Texture2D" uid="uid://d1fduv7hs55je" path="res://images/okbill.png" id="2_80rsf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_80rsf"]
 
 [node name="BillboardNode" type="Node3D" unique_id=900596795]
-script = ExtResource("1_80rsf")
 
-[node name="AccuracyLabel" type="Label3D" parent="." unique_id=268256902]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.1, 0)
-billboard = 1
-text = "DALKSJFLALKA
-"
-font_size = 100
-outline_size = 0
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1184200836]
+gravity_scale = 0.4
+linear_velocity = Vector3(0, 0.4, 0)
 
-[node name="ComboLabel" type="Label3D" parent="." unique_id=1717861924]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.1, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1982977527]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("SphereShape3D_80rsf")
+disabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D/CollisionShape3D" unique_id=1387744485]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.25, 0)
 billboard = 1
-text = "DALKSJFLALKA
-"
-font_size = 100
-outline_size = 0
+texture = ExtResource("2_80rsf")

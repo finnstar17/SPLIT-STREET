@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var music_node = $Music
 @onready var mainScene = $RhythmScene
+@onready var camera = $Camera3D
 
 var audio
 var charts = "res://music_related/charts/"
@@ -12,10 +13,18 @@ var bar_spacing
 var quarter_time_sec
 var speed
 var start_pos
+var current_bar = 0
 
 func _ready() -> void:
 	var sugar_rush = charts.path_join("SUGAR RUSH.json")
 	load_song(sugar_rush)
+
+func _process(delta: float) -> void:
+	if current_bar != MainLoader.bar_detected:
+		current_bar = MainLoader.bar_detected
+		camera.fov = 86.25
+	
+	camera.fov = lerp(camera.fov, 90.0, speed * delta)
 
 func load_song(song_path):
 	var chart_data = MainLoader.load_chart(song_path)

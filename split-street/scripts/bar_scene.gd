@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var detected = false
 var note_scene = preload("res://scenes/hit_note_scene.tscn")
 var current_bar = MainLoader.current_bar
 

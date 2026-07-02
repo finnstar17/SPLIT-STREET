@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cybx6waw4pwnu" path="res://scripts/note_scene.gd" id="1_ircua"]
 [ext_resource type="Material" uid="uid://meipyku4tq87" path="res://materials/note_materials/idle_note_material.tres" id="2_0klua"]
+[ext_resource type="Material" uid="uid://c85o2fr4hc5lc" path="res://materials/unshaded_white.tres" id="3_oiddk"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_ircua"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_vyp1h"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_8wuov"]
-flip_faces = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ircua"]
-shading_mode = 0
+[sub_resource type="TorusMesh" id="TorusMesh_vyp1h"]
+outer_radius = 0.55
+rings = 32
+ring_segments = 6
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0klua"]
 
@@ -17,14 +17,14 @@ shading_mode = 0
 script = ExtResource("1_ircua")
 
 [node name="NoteMesh" type="MeshInstance3D" parent="." unique_id=663749602]
-transform = Transform3D(0.3, 0, 0, 0, 0.01, 0, 0, 0, 0.08, 0, 0, 0)
-mesh = SubResource("BoxMesh_ircua")
+transform = Transform3D(0.3, 0, 0, 0, 0.001, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("CylinderMesh_vyp1h")
 surface_material_override/0 = ExtResource("2_0klua")
 
-[node name="BlackOutline" type="MeshInstance3D" parent="NoteMesh" unique_id=646850828]
-transform = Transform3D(1.1, 0, 0, 0, 2.5, 0, 0, 0, 1.375, 0, 0, 0)
-mesh = SubResource("BoxMesh_8wuov")
-surface_material_override/0 = SubResource("StandardMaterial3D_ircua")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NoteMesh" unique_id=949609699]
+transform = Transform3D(1, 0, 0, 0, 300, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("TorusMesh_vyp1h")
+surface_material_override/0 = ExtResource("3_oiddk")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=917935583 groups=["picker"]]
 
