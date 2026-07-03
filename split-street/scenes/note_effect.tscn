@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cte67iv87fta3"]
+
+[ext_resource type="Script" uid="uid://dcp1nq0ehdnpu" path="res://scripts/note_effect.gd" id="1_1kbeq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kbeq"]
+resource_local_to_scene = true
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+
+[sub_resource type="TorusMesh" id="TorusMesh_n8a4n"]
+outer_radius = 0.55
+rings = 32
+ring_segments = 6
+
+[sub_resource type="Gradient" id="Gradient_1kbeq"]
+colors = PackedColorArray(0, 0, 0, 1, 0.5, 0.5, 0.5, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ai3mr"]
+gradient = SubResource("Gradient_1kbeq")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxhgm"]
+resource_local_to_scene = true
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_ai3mr")
+uv1_offset = Vector3(0, 0.008, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a4vms"]
+resource_local_to_scene = true
+radial_segments = 32
+cap_top = false
+cap_bottom = false
+
+[node name="NoteEffect" type="Node3D" unique_id=1054278888]
+script = ExtResource("1_1kbeq")
+
+[node name="ScaleMesh" type="MeshInstance3D" parent="." unique_id=1745232201]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_1kbeq")
+mesh = SubResource("TorusMesh_n8a4n")
+
+[node name="CylinderMesh" type="MeshInstance3D" parent="." unique_id=342412512]
+transform = Transform3D(0.31, 0, 0, 0, 0.075, 0, 0, 0, 0.31, 0, 0.075, 0)
+material_override = SubResource("StandardMaterial3D_jxhgm")
+mesh = SubResource("CylinderMesh_a4vms")

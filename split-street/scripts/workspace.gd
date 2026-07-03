@@ -6,7 +6,6 @@ extends Node3D
 
 var audio
 var charts = "res://music_related/charts/"
-var music = "res://music_related/music/"
 
 var tempo
 var bar_spacing

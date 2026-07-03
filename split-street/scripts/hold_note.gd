@@ -2,13 +2,11 @@ extends Node3D
 
 @export_range(0, 4) var line : int
 @export_range(0, 2) var plane : int
+@onready var hold_note_mesh = $HoldNoteMesh
 var pos = 0
 var is_hit = false
 var is_collected = false
-var missed = false
-var level = 0
 var picker : Node3D
-var picker_name = ""
 
 func _ready():
 	_set_position()
@@ -21,10 +19,7 @@ func _process(_delta: float) -> void:
 			hide()
 		else:
 			show()
-		if global_position.z > 0 and missed == false:
-			missed = true
-			MainLoader.current_combo = 0
-
+			
 func _set_position():
 	var x_pos : float
 	var y_pos : float
@@ -51,37 +46,17 @@ func _set_position():
 func collect():
 	if not is_collected:
 		if is_hit and picker:
-			if picker.is_collecting:
+			if picker.general_collecting:
 				is_collected = true
-				picker.is_collecting = false
-				picker.just_collected = true
-
-				var distance = abs(global_position.z + 0.8)
-
-				if distance > 0.16:
-					MainLoader.current_combo = 0
-				else:
-					MainLoader.current_combo += 1
-
-				if distance <= 0.16:
-					level = 1
-				if distance <= 0.12:
-					level = 2
-				if distance <= 0.08:
-					level = 3
-
-				MainLoader.current_accuracy = level
-				MainLoader.current_note_number += 1
 
 				hide()
 
-func _on_area_3d_entered(area: Area3D) -> void:
+func _on_area_3d_hold_exited(area: Area3D) -> void:
 	if area.is_in_group("picker"):
 		is_hit = true
 		picker = area.get_parent()
-		picker_name = area.get_parent().name
 
-func _on_area_3d_exited(area: Area3D) -> void:
+func _on_area_3d_hold_entered(area: Area3D) -> void:
 	if area.is_in_group("picker"):
 		is_hit = false
 		picker = null
