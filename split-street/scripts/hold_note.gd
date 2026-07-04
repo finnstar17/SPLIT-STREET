@@ -7,6 +7,7 @@ var pos = 0
 var is_hit = false
 var is_collected = false
 var picker : Node3D
+var grant_point = false
 
 func _ready():
 	_set_position()
@@ -48,6 +49,10 @@ func collect():
 		if is_hit and picker:
 			if picker.general_collecting:
 				is_collected = true
+
+				if grant_point:
+					MainLoader.score += 25
+					print(MainLoader.score)
 
 				hide()
 

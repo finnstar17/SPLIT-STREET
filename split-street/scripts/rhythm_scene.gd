@@ -10,8 +10,8 @@ var speed
 var old_note = 0
 
 func setup(game):
-	speed = Vector3(0, 0, game.speed)
-	bar_spacing = game.bar_spacing
+	speed = Vector3(0, 0, game.speed * 1.5)
+	bar_spacing = game.bar_spacing * 1.5
 	current_location = Vector3(0, 0, -bar_spacing)
 
 	bars_node.position = Vector3(0, 0, -bar_spacing * 0.5)

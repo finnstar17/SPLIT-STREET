@@ -7,7 +7,9 @@ var duration = 0.4
 
 func _ready():
 	var tween_scale = scale_mesh.create_tween()
-	tween_scale.tween_property(scale_mesh, "scale", Vector3(0.6, 0.6, 0.6), duration)
+	tween_scale.set_trans(Tween.TRANS_CUBIC)
+	tween_scale.set_ease(Tween.EASE_OUT)
+	tween_scale.tween_property(scale_mesh, "scale", Vector3(0.5, 0.5, 0.5), duration)
 
 	tween_transparency(scale_mesh)
 	tween_transparency(gradient_mesh)

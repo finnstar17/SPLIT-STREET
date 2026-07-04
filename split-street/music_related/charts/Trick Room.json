@@ -1,0 +1,113 @@
+{
+	"title": "Trick Room",
+	"artist": "Koraii",
+	"file": "res://music_related/music/Trick Room.mp3",
+	"bpm": 160.0,
+	"spacing": 4.0,
+	"offset": 47.7,
+	"note_data": {
+		"1": {
+			"notes": [
+				{"pos": 0.0, "line": 4.0, "plane": 2.0, "type": 2},
+				{"pos": 0.0, "line": 3.0, "plane": 2.0, "type": 2},
+				{"pos": 1.0, "line": 2.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 1.0, "plane": 1.0, "type": 2},
+				{"pos": 5.0, "line": 1.0, "plane": 1.0, "length": 2.0},
+				{"pos": 5.0, "line": 4.0, "plane": 1.0, "length": 2.0}
+			]
+		},
+		"2": {
+			"notes": [
+				{"pos": 0.0, "line": 4.0, "plane": 1.0, "type": 2},
+				{"pos": 0.0, "line": 3.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 2.0, "plane": 2.0, "type": 2},
+				{"pos": 1.0, "line": 1.0, "plane": 2.0, "type": 2},
+				{"pos": 5.0, "line": 1.0, "plane": 2.0, "length": 2.0},
+				{"pos": 5.0, "line": 4.0, "plane": 2.0, "length": 2.0}
+			]
+		},
+		"3": {
+			"notes": [
+				{"pos": 0.0, "line": 1.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 2.0, "plane": 2.0},
+				{"pos": 3.0, "line": 4.0, "plane": 2.0, "type": 2},
+				{"pos": 4.0, "line": 3.0, "plane": 1.0},
+				{"pos": 6.0, "line": 1.0, "plane": 1.0},
+				{"pos": 7.0, "line": 1.0, "plane": 1.0}
+			]
+		},
+		"4": {
+			"notes": [
+				{"pos": 0.0, "line": 4.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 1.0, "plane": 2.0, "type": 2},
+				{"pos": 4.0, "line": 2.0, "plane": 1.0},
+				{"pos": 5.0, "line": 1.0, "plane": 1.0, "length": 2.0},
+				{"pos": 5.0, "line": 4.0, "plane": 1.0, "length": 2.0}
+			]
+		},
+		"5": {
+			"notes": [
+				{"pos": 0.0, "line": 4.0, "plane": 2.0, "type": 2},
+				{"pos": 0.0, "line": 1.0, "plane": 2.0, "type": 2},
+				{"pos": 1.0, "line": 3.0, "plane": 2.0, "type": 2},
+				{"pos": 1.0, "line": 2.0, "plane": 2.0, "type": 2},
+				{"pos": 5.0, "line": 1.0, "plane": 2.0, "length": 2.0},
+				{"pos": 5.0, "line": 4.0, "plane": 1.0, "length": 2.0}
+			]
+		},
+		"6": {
+			"notes": [
+				{"pos": 0.0, "line": 3.0, "plane": 1.0, "type": 2},
+				{"pos": 0.0, "line": 2.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 4.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 1.0, "plane": 1.0, "type": 2},
+				{"pos": 5.0, "line": 1.0, "plane": 1.0, "length": 2.0},
+				{"pos": 5.0, "line": 4.0, "plane": 2.0, "length": 2.0}
+			]
+		},
+		"7": {
+			"notes": [
+				{"pos": 0.0, "line": 1.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 2.0, "plane": 2.0},
+				{"pos": 3.0, "line": 4.0, "plane": 2.0, "type": 2},
+				{"pos": 4.0, "line": 3.0, "plane": 1.0},
+				{"pos": 6.0, "line": 4.0, "plane": 2.0},
+				{"pos": 7.0, "line": 4.0, "plane": 2.0}
+			]
+		},
+		"8": {
+			"notes": [
+				{"pos": 0.0, "line": 1.0, "plane": 2.0, "type": 2},
+				{"pos": 1.0, "line": 4.0, "plane": 1.0},
+				{"pos": 4.0, "line": 1.0, "plane": 2.0},
+				{"pos": 4.0, "line": 4.0, "plane": 2.0}
+
+			]
+		},
+		"9": {
+			"notes": [
+				{"pos": 0.0, "line": 4.0, "plane": 1.0, "type": 2},
+				{"pos": 0.0, "line": 1.0, "plane": 2.0, "type": 2},
+				{"pos": 1.0, "line": 4.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 1.0, "plane": 2.0, "type": 2},
+				{"pos": 4.0, "line": 2.0, "plane": 2.0},
+				{"pos": 4.0, "line": 3.0, "plane": 2.0},
+				{"pos": 5.0, "line": 1.0, "plane": 1.0, "length": 2.0},
+				{"pos": 5.0, "line": 4.0, "plane": 1.0, "length": 2.0}			
+			]
+		},
+		"10": {
+			"notes": [
+				{"pos": 0.0, "line": 3.0, "plane": 2.0, "type": 2},
+				{"pos": 0.0, "line": 2.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 3.0, "plane": 2.0, "type": 2},
+				{"pos": 1.0, "line": 2.0, "plane": 1.0, "type": 2},
+				{"pos": 4.0, "line": 2.0, "plane": 1.0},
+				{"pos": 4.0, "line": 3.0, "plane": 1.0},
+				{"pos": 5.0, "line": 1.0, "plane": 2.0, "length": 2.0},
+				{"pos": 5.0, "line": 4.0, "plane": 2.0, "length": 2.0}			
+			]
+		},
+
+	}
+}

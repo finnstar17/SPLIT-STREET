@@ -3,11 +3,13 @@ extends Node
 # all autoload variables
 
 var current_song : String
+var current_speed : float
 var current_accuracy : int
 var current_note_number = 0
 var current_combo = 0
 var current_bar = 0
 var bar_detected = 0
+var score = 0
 
 # song loader
 func set_current_song(path : String):
