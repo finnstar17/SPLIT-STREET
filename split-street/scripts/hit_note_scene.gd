@@ -9,7 +9,6 @@ var is_hit = false
 var is_collected = false
 var missed = false
 var level = 0
-var picker : Node3D
 
 var normal_note = preload("res://materials/note_type_stuff/normal_note.tres")
 var climb_note = preload("res://materials/note_type_stuff/climb_note.tres")
@@ -17,17 +16,17 @@ var climb_note = preload("res://materials/note_type_stuff/climb_note.tres")
 func _ready():
 	_set_position()
 	
-func _process(_delta: float) -> void:
-	collect()
+#func _process(_delta: float) -> void:
+	#collect()
 
-	if not is_collected:
-		if global_position.z < -4.6:
-			hide()
-		else:
-			show()
-		if global_position.z > 0 and missed == false:
-			missed = true
-			MainLoader.current_combo = 0
+	#if not is_collected:
+		#if global_position.z < -4.6:
+			#hide()
+		#else:
+			#show()
+		#if global_position.z > 0 and missed == false:
+			#missed = true
+			#MainLoader.current_combo = 0
 
 func _set_position():
 	var x_pos : float
@@ -62,43 +61,29 @@ func _set_position():
 		var climb_mesh = $ClimbNoteMesh
 		climb_mesh.show()
 
-func collect():
+func collect(picker : Node3D):
 	if not is_collected:
-		if is_hit and picker:
-			if picker.is_collecting:
-				is_collected = true
-				picker.is_collecting = false
-				picker.just_collected = true
-				picker.note_just_hit = type
-				picker.spawn_effect()
+		is_collected = true
+		picker.note_just_hit = type
+		picker.spawn_extra()
 
-				var distance = abs(global_position.z + 0.8)
+		var distance = abs(global_position.z + 0.8)
 
-				if distance > 0.16:
-					MainLoader.current_combo = 0
-				else:
-					MainLoader.current_combo += 1
+		if distance > 0.16:
+			MainLoader.current_combo = 0
+		else:
+			MainLoader.current_combo += 1
 
-				if distance <= 0.24:
-					level = 1
-				if distance <= 0.18:
-					level = 2
-				if distance <= 0.12:
-					level = 3
+		if distance <= 0.24:
+			level = 1
+		if distance <= 0.18:
+			level = 2
+		if distance <= 0.12:
+			level = 3
 
-				MainLoader.current_accuracy = level
-				MainLoader.current_note_number += 1
-				MainLoader.score += (level + 0.5) * 50
-				print(MainLoader.score)
+		MainLoader.current_accuracy = level
+		MainLoader.current_note_number += 1
+		MainLoader.score += (level + 0.5) * 50
+		print(MainLoader.score)
 
-				hide()
-
-func _on_area_3d_entered(area: Area3D) -> void:
-	if area.is_in_group("picker"):
-		is_hit = true
-		picker = area.get_parent()
-
-func _on_area_3d_exited(area: Area3D) -> void:
-	if area.is_in_group("picker"):
-		is_hit = false
-		picker = null
+		queue_free()

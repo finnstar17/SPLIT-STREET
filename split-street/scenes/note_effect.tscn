@@ -14,7 +14,7 @@ rings = 32
 ring_segments = 6
 
 [sub_resource type="Gradient" id="Gradient_1kbeq"]
-colors = PackedColorArray(0, 0, 0, 1, 0.5, 0.5, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.75, 0.75, 0.75, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ai3mr"]
 gradient = SubResource("Gradient_1kbeq")

@@ -26,7 +26,7 @@ visible = false
 mesh = SubResource("CylinderMesh_83orw")
 surface_material_override/0 = ExtResource("3_nxxqi")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=695104939]
+[node name="Area3D" type="Area3D" parent="." unique_id=695104939 groups=["note"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=392781430]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.9, 0, 0, 0)

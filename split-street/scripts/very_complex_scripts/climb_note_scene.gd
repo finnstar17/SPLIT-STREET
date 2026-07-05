@@ -45,7 +45,7 @@ func collect():
 				MainLoader.score += (level + 0.5) * 50
 				print(MainLoader.score)
 
-				hide()
+				queue_free()
 
 func _on_area_3d_climb_exited(area: Area3D) -> void:
 	if area.is_in_group("picker") and area.get_parent() != just_came_from:

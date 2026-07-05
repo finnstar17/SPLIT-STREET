@@ -8,11 +8,11 @@ var active_note = preload("res://materials/note_materials/active_note_material.t
 @onready var note_effect = preload("res://scenes/note_effect.tscn")
 @onready var climb_note = preload("res://scenes/more_complex_scenes/climb_note_scene.tscn")
 
-var is_pressed = false
 var is_collecting = false
 var general_collecting = false
 var just_collected = false
 var note_just_hit : int
+var current_note : Node3D
 const ACTION_MAP = {
 	1: "D_Input",
 	2: "F_Input",
@@ -28,26 +28,29 @@ func _ready():
 	note_mesh.set_surface_override_material(0, idle_note)
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed(ACTION_MAP[line]):
+		is_collecting = true
+		general_collecting = true
+
+		note_mesh.set_surface_override_material(0, active_note)
+	elif Input.is_action_just_released(ACTION_MAP[line]):
+		is_collecting = false
+		general_collecting = false
+
+		note_mesh.set_surface_override_material(0, idle_note)
+
+	if current_note and is_collecting:
+		is_collecting = false
+		just_collected = true
+		current_note.collect(self)
+
 	if just_collected:
 		just_collected = false
 		
 		var effect = note_effect.instantiate()
 		add_child(effect)
 
-	if Input.is_action_just_pressed(ACTION_MAP[line]):
-		is_pressed = true
-		is_collecting = true
-		general_collecting = true
-
-		note_mesh.set_surface_override_material(0, active_note)
-	elif Input.is_action_just_released(ACTION_MAP[line]):
-		is_pressed = false
-		is_collecting = false
-		general_collecting = false
-
-		note_mesh.set_surface_override_material(0, idle_note)
-
-func spawn_effect():
+func spawn_extra():
 	if note_just_hit == 2:
 		var new_note = climb_note.instantiate()
 		get_parent().add_child(new_note)
@@ -58,3 +61,12 @@ func spawn_effect():
 			new_note.direction = -1
 		else:
 			new_note.direction = 1
+
+
+func _on_area_3d_hit_exited(area: Area3D) -> void:
+	if area.is_in_group("note"):
+		current_note = null
+
+func _on_area_3d_hit_entered(area: Area3D) -> void:
+	if area.is_in_group("note"):
+		current_note = area.get_parent()
