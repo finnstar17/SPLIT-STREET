@@ -69,7 +69,7 @@ func collect(picker : Node3D):
 
 		var distance = abs(global_position.z + 0.8)
 
-		if distance > 0.16:
+		if distance > 0.24:
 			MainLoader.current_combo = 0
 		else:
 			MainLoader.current_combo += 1

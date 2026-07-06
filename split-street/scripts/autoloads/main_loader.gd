@@ -11,6 +11,11 @@ var current_bar = 0
 var bar_detected = 0
 var score = 0
 
+var current_time = ""
+var full_length = "0:00"
+var time_in_sec = 0
+var length_in_sec = 0
+
 # song loader
 func set_current_song(path : String):
 	current_song = path

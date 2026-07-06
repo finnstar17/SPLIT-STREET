@@ -18,7 +18,7 @@ func setup(game):
 
 	add_bars()
 
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	bars_node.position += speed * delta
 
 	for bar in bars:

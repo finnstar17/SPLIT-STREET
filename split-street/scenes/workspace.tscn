@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://02bw41nh0o77" path="res://scripts/workspace.gd" id="1_a61m0"]
 [ext_resource type="PackedScene" uid="uid://c5k4nlfprk61o" path="res://scenes/rhythm_scene.tscn" id="1_nf4vs"]
 [ext_resource type="PackedScene" uid="uid://bi0vnf2ayvdch" path="res://scenes/music_scene.tscn" id="2_cn5mv"]
+[ext_resource type="PackedScene" uid="uid://c2i51u4dsdtw2" path="res://scenes/preview_stats.tscn" id="4_cnvne"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wjago"]
 flip_faces = true
@@ -29,6 +30,8 @@ fov = 90.0
 [node name="Skybox" type="Node3D" parent="." unique_id=1346251545]
 
 [node name="SkyGradient" type="MeshInstance3D" parent="Skybox" unique_id=959556197]
-transform = Transform3D(-1.0490733e-06, 0, 24, 0, 11, 0, -24, 0, -1.0490733e-06, 0, 0, 0)
+transform = Transform3D(-6.993822e-07, 0, 16, 0, 8, 0, -16, 0, -6.993822e-07, 0, 0, 0)
 mesh = SubResource("CylinderMesh_wjago")
 surface_material_override/0 = SubResource("StandardMaterial3D_thvsl")
+
+[node name="PreviewStats" parent="." unique_id=1668668830 instance=ExtResource("4_cnvne")]

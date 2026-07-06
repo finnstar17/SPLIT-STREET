@@ -12,7 +12,7 @@ radial_segments = 32
 script = ExtResource("1_14wpu")
 
 [node name="NoteMesh" type="MeshInstance3D" parent="." unique_id=149932596]
-transform = Transform3D(0.3, 0, 0, 0, 0.01, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.02, 0, 0, 0, 0.3, 0, 0, 0)
 mesh = SubResource("CylinderMesh_7xy53")
 surface_material_override/0 = ExtResource("2_14wpu")
 
