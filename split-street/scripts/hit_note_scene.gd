@@ -69,17 +69,26 @@ func collect(picker : Node3D):
 
 		var distance = abs(global_position.z + 0.8)
 
-		if distance > 0.24:
+		if distance >= 0.4:
 			MainLoader.current_combo = 0
 		else:
 			MainLoader.current_combo += 1
 
-		if distance <= 0.24:
+		if distance <= 0.35:
 			level = 1
-		if distance <= 0.18:
+		if distance <= 0.3:
 			level = 2
-		if distance <= 0.12:
+		if distance <= 0.25:
 			level = 3
+
+		if level == 0:
+			MainLoader.oks += 1
+		elif level == 1:
+			MainLoader.goods += 1
+		elif level == 2:
+			MainLoader.greats += 1
+		elif level == 3:
+			MainLoader.perfects += 1
 
 		MainLoader.current_accuracy = level
 		MainLoader.current_note_number += 1

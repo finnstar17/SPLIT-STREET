@@ -3,8 +3,17 @@ extends Node3D
 @onready var music_node = $Music
 @onready var main_scene = $RhythmScene
 @onready var stat_scene = $PreviewStats
+
 @onready var time_stuff = $PreviewStats/SongPreview/CurrentTime
 @onready var bar_timeline = $PreviewStats/SongPreview/Bar/Node3D
+@onready var actual_score = $PreviewStats/Stats/ActualScore
+@onready var actual_combo = $PreviewStats/Stats/ActualCombo
+
+@onready var perfects = $PreviewStats/Stats/RealAccuracy/PerfectLabel
+@onready var greats = $PreviewStats/Stats/RealAccuracy/GreatLabel
+@onready var goods = $PreviewStats/Stats/RealAccuracy/GoodLabel
+@onready var oks = $PreviewStats/Stats/RealAccuracy/OkLabel
+@onready var misseds = $PreviewStats/Stats/RealAccuracy/MissedLabel
 
 var audio
 var charts = "res://music_related/charts/"
@@ -32,6 +41,15 @@ func _process(_delta: float) -> void:
 
 	time_stuff.text = MainLoader.current_time + " / " + MainLoader.full_length
 	bar_timeline.scale = Vector3(MainLoader.time_in_sec / MainLoader.length_in_sec, 1, 1)
+
+	actual_score.text = str(int(MainLoader.score))
+	actual_combo.text = str(MainLoader.current_combo) + "x"
+
+	perfects.text = str(int(MainLoader.perfects))
+	greats.text = str(int(MainLoader.greats))
+	goods.text = str(int(MainLoader.goods))
+	oks.text = str(int(MainLoader.oks))
+	misseds.text = str(int(MainLoader.misseds))
 
 func load_song(song_path):
 	var chart_data = MainLoader.load_chart(song_path)

@@ -16,6 +16,12 @@ var full_length = "0:00"
 var time_in_sec = 0
 var length_in_sec = 0
 
+var perfects = 0
+var greats = 0
+var goods = 0
+var oks = 0
+var misseds = 0
+
 # song loader
 func set_current_song(path : String):
 	current_song = path

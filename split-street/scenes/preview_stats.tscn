@@ -10,7 +10,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xheyw"]
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(0.1, 0.1, 0.1, 1)
+albedo_color = Color(0.15, 0.15, 0.15, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhuxn"]
 resource_local_to_scene = true
@@ -54,7 +54,7 @@ text = "Song Name
 "
 font = ExtResource("2_rhuxn")
 font_size = 100
-outline_size = 10
+outline_size = 20
 horizontal_alignment = 0
 vertical_alignment = 2
 line_spacing = -20.0
@@ -80,7 +80,7 @@ text = "0:00 / 0:00
 "
 font = ExtResource("2_rhuxn")
 font_size = 40
-outline_size = 4
+outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 2
 autowrap_mode = 2
@@ -97,11 +97,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_xheyw")
 [node name="ScoreLabel" type="Label3D" parent="Stats" unique_id=882414684]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.76, 0.15, 0)
 outline_modulate = Color(1, 1, 1, 1)
-text = "Score:
+text = "Score
 "
 font = ExtResource("2_rhuxn")
 font_size = 100
-outline_size = 10
+outline_size = 20
 horizontal_alignment = 0
 vertical_alignment = 2
 line_spacing = -20.0
@@ -114,7 +114,18 @@ outline_modulate = Color(1, 1, 1, 1)
 text = "10294801222"
 font = ExtResource("2_rhuxn")
 font_size = 110
-outline_size = 10
+outline_size = 0
+line_spacing = -20.0
+autowrap_mode = 1
+width = 800.0
+
+[node name="ActualCombo" type="Label3D" parent="Stats" unique_id=1828368789]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.05, 0)
+outline_modulate = Color(1, 1, 1, 1)
+text = "10294801222"
+font = ExtResource("2_rhuxn")
+font_size = 110
+outline_size = 0
 line_spacing = -20.0
 autowrap_mode = 1
 width = 800.0
@@ -122,13 +133,135 @@ width = 800.0
 [node name="ComboLabel" type="Label3D" parent="Stats" unique_id=1461431998]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.04, 0.15, 0)
 outline_modulate = Color(1, 1, 1, 1)
-text = "Combo:
+text = "Combo
 "
 font = ExtResource("2_rhuxn")
 font_size = 100
-outline_size = 10
+outline_size = 20
 horizontal_alignment = 0
 vertical_alignment = 2
+line_spacing = -20.0
+autowrap_mode = 2
+width = 1100.0
+
+[node name="AccuracyStuff" type="Node3D" parent="Stats" unique_id=366029192]
+
+[node name="PerfectLabel" type="Label3D" parent="Stats/AccuracyStuff" unique_id=1761343743]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.2, 0, 0, 0, 0.19999999, 0.59999996, -0.1, 1.1920929e-07)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Perfect
+"
+font = ExtResource("2_rhuxn")
+font_size = 60
+line_spacing = -20.0
+autowrap_mode = 2
+width = 1100.0
+
+[node name="GreatLabel" type="Label3D" parent="Stats/AccuracyStuff" unique_id=1533563046]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.2, 0, 0, 0, 0.19999999, 0.2999999, -0.1, 0)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Great"
+font = ExtResource("2_rhuxn")
+font_size = 60
+line_spacing = -20.0
+autowrap_mode = 2
+width = 1100.0
+
+[node name="GoodLabel" type="Label3D" parent="Stats/AccuracyStuff" unique_id=589530237]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.2, 0, 0, 0, 0.19999999, 0, -0.1, 0)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Good"
+font = ExtResource("2_rhuxn")
+font_size = 60
+line_spacing = -20.0
+autowrap_mode = 2
+width = 1100.0
+
+[node name="OkLabel" type="Label3D" parent="Stats/AccuracyStuff" unique_id=481001546]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.2, 0, 0, 0, 0.19999999, -0.30000007, -0.1, 1.1920929e-07)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Ok
+"
+font = ExtResource("2_rhuxn")
+font_size = 60
+line_spacing = -20.0
+autowrap_mode = 2
+width = 1100.0
+
+[node name="MissedLabel" type="Label3D" parent="Stats/AccuracyStuff" unique_id=296102240]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.2, 0, 0, 0, 0.19999999, -0.5999999, -0.1, 0)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Missed
+"
+font = ExtResource("2_rhuxn")
+font_size = 60
+line_spacing = -20.0
+autowrap_mode = 2
+width = 1100.0
+
+[node name="RealAccuracy" type="Node3D" parent="Stats" unique_id=816015415]
+
+[node name="PerfectLabel" type="Label3D" parent="Stats/RealAccuracy" unique_id=2119834210]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.2, 0, 0, 0, 0.19999999, 0.59999996, -0.21, 1.1920929e-07)
+outline_modulate = Color(1, 1, 1, 1)
+text = "10
+
+"
+font = ExtResource("2_rhuxn")
+font_size = 80
+outline_size = 0
+line_spacing = -20.0
+autowrap_mode = 2
+width = 1100.0
+
+[node name="GreatLabel" type="Label3D" parent="Stats/RealAccuracy" unique_id=1013022478]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.2, 0, 0, 0, 0.19999999, 0.2999999, -0.21, 0)
+outline_modulate = Color(1, 1, 1, 1)
+text = "10
+
+"
+font = ExtResource("2_rhuxn")
+font_size = 80
+outline_size = 0
+line_spacing = -20.0
+autowrap_mode = 2
+width = 1100.0
+
+[node name="GoodLabel" type="Label3D" parent="Stats/RealAccuracy" unique_id=924079948]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.2, 0, 0, 0, 0.19999999, 0, -0.21, 0)
+outline_modulate = Color(1, 1, 1, 1)
+text = "10
+
+"
+font = ExtResource("2_rhuxn")
+font_size = 80
+outline_size = 0
+line_spacing = -20.0
+autowrap_mode = 2
+width = 1100.0
+
+[node name="OkLabel" type="Label3D" parent="Stats/RealAccuracy" unique_id=1414926781]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.2, 0, 0, 0, 0.19999999, -0.30000007, -0.21, 1.1920929e-07)
+outline_modulate = Color(1, 1, 1, 1)
+text = "10
+
+"
+font = ExtResource("2_rhuxn")
+font_size = 80
+outline_size = 0
+line_spacing = -20.0
+autowrap_mode = 2
+width = 1100.0
+
+[node name="MissedLabel" type="Label3D" parent="Stats/RealAccuracy" unique_id=285599779]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.2, 0, 0, 0, 0.19999999, -0.5999999, -0.21, 0)
+outline_modulate = Color(1, 1, 1, 1)
+text = "10
+
+"
+font = ExtResource("2_rhuxn")
+font_size = 80
+outline_size = 0
 line_spacing = -20.0
 autowrap_mode = 2
 width = 1100.0

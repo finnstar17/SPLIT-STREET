@@ -14,9 +14,10 @@ func _process(delta: float) -> void:
 	collect()
 
 	if not is_collected:
-		if global_position.y >= 1.8 or global_position.y <= -1.8:
+		if global_position.y >= 1.2 or global_position.y <= -1.2:
 			queue_free()
 			MainLoader.current_combo = 0
+			MainLoader.misseds += 1
 
 func collect():
 	if not is_collected:
@@ -28,17 +29,26 @@ func collect():
 
 				var distance = abs(abs(global_position.y) - 0.6)
 
-				if distance > 0.16:
+				if distance >= 0.25:
 					MainLoader.current_combo = 0
 				else:
 					MainLoader.current_combo += 1
 
-				if distance <= 0.16:
+				if distance <= 0.2:
 					level = 1
-				if distance <= 0.12:
+				if distance <= 0.15:
 					level = 2
-				if distance <= 0.08:
+				if distance <= 0.1:
 					level = 3
+
+				if level == 0:
+					MainLoader.oks += 1
+				elif level == 1:
+					MainLoader.goods += 1
+				elif level == 2:
+					MainLoader.greats += 1
+				elif level == 3:
+					MainLoader.perfects += 1
 
 				MainLoader.current_accuracy = level
 				MainLoader.current_note_number += 1

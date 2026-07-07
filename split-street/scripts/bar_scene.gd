@@ -26,19 +26,23 @@ func add_notes(chart_data):
 
 				if "length" in note:
 					for index_1 in range(0, note.length):
-						for index_2 in range(0, 5):
+						for index_2 in range(0, 10):
 							if index_1 == 0 and index_2 == 0:
 								pass
 							else:
 								var hold_note_instance = hold_note_scene.instantiate()
+								var should_instanciate = true
 								hold_note_instance.line = note.line
 								hold_note_instance.plane = note.plane
-								hold_note_instance.pos = ((note.pos * note_scale) + index_2 * 0.15 + (index_1 * note_scale))
+								hold_note_instance.pos = ((note.pos * note_scale) + index_2 * 0.075 + (index_1 * note_scale))
 
-								if (index_2 == 0 and index_1 > 0) or index_2 == 2:
+								if (index_2 == 0 and index_1 > 0) or index_2 == 5:
 									hold_note_instance.grant_point = true
+								if index_2 > 5 and index_1 == note.length - 1:
+									should_instanciate = false
 
-								add_child(hold_note_instance)
+								if should_instanciate:
+									add_child(hold_note_instance)
 				if "type" in note:
 					note_instance.type = note.type
 

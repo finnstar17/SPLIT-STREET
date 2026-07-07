@@ -5,7 +5,7 @@
 	"cover": "res://images/song_covers/Trick Room.jpg",
 	"bpm": 160.0,
 	"spacing": 4.0,
-	"offset": 47.65,
+	"offset": 47.68,
 	"note_data": {
 		"1": {
 			"notes": [

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SPLIT STREET"
-run/main_scene="uid://cvto7h2n8eres"
+run/main_scene="uid://ci1te3ggs5i2v"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

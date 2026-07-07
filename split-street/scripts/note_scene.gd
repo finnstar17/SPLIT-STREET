@@ -13,6 +13,8 @@ var general_collecting = false
 var just_collected = false
 var note_just_hit : int
 var current_note : Node3D
+var last_note : Node3D
+var just_missed = false
 const ACTION_MAP = {
 	1: "D_Input",
 	2: "F_Input",
@@ -50,6 +52,11 @@ func _process(_delta: float) -> void:
 		var effect = note_effect.instantiate()
 		add_child(effect)
 
+	if last_note and last_note.global_position.z >= 0.3 and just_missed == false:
+		just_missed = true
+		MainLoader.current_combo = 0
+		MainLoader.misseds += 1
+
 func spawn_extra():
 	if note_just_hit == 2:
 		var new_note = climb_note.instantiate()
@@ -70,3 +77,5 @@ func _on_area_3d_hit_exited(area: Area3D) -> void:
 func _on_area_3d_hit_entered(area: Area3D) -> void:
 	if area.is_in_group("note"):
 		current_note = area.get_parent()
+		last_note = current_note
+		just_missed = false

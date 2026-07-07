@@ -3,23 +3,26 @@
 [ext_resource type="Script" uid="uid://duds6nd7smgaf" path="res://scripts/hold_note.gd" id="1_mel0k"]
 [ext_resource type="Material" uid="uid://mg7cequb7otw" path="res://materials/unshaded_transparent.tres" id="2_etj7h"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_e34in"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_etj7h"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e34in"]
 
 [node name="HoldNote" type="Node3D" unique_id=1414536168]
 script = ExtResource("1_mel0k")
 
-[node name="NoteMesh" type="MeshInstance3D" parent="." unique_id=1260051810]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.075, 0, 0, 0)
-mesh = SubResource("PlaneMesh_e34in")
-surface_material_override/0 = ExtResource("2_etj7h")
-
 [node name="Area3D" type="Area3D" parent="." unique_id=1615912152 groups=["hold_note"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1392853462]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.45, 0, 0, -0.225)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.15)
 shape = SubResource("BoxShape3D_etj7h")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=974242682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="NoteMesh" type="MeshInstance3D" parent="Node3D" unique_id=1260051810]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.075, 0, 0, -0.075)
+mesh = SubResource("PlaneMesh_e34in")
+surface_material_override/0 = ExtResource("2_etj7h")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_hold_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_hold_exited"]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ci1te3ggs5i2v"]
+
+[ext_resource type="Script" uid="uid://bgni513rp7u8a" path="res://scripts/home.gd" id="1_krot7"]
+
+[node name="Home" type="Node3D" unique_id=850447393]
+script = ExtResource("1_krot7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1962519954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+fov = 90.0

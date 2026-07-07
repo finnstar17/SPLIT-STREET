@@ -14,24 +14,65 @@ cap_bottom = false
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thvsl"]
 shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(0.05, 0.05, 0.1, 1)
+
+[sub_resource type="Gradient" id="Gradient_cnvne"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_thvsl"]
+gradient = SubResource("Gradient_cnvne")
+fill_from = Vector2(1, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1nar"]
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_thvsl")
+uv1_offset = Vector3(0, 0.008, 0)
+
+[sub_resource type="Gradient" id="Gradient_thvsl"]
+offsets = PackedFloat32Array(0, 0.50688076, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c1nar"]
+gradient = SubResource("Gradient_thvsl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cnvne"]
+emission_shape = 3
+emission_box_extents = Vector3(12, 0, 3)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 16.0
+scale_max = 24.0
+color = Color(0, 0, 0.33, 1)
+color_ramp = SubResource("GradientTexture1D_c1nar")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.14999998
+
+[sub_resource type="SphereMesh" id="SphereMesh_ychec"]
+height = 0.001
+radial_segments = 32
+rings = 4
 
 [node name="Workspace3D" type="Node3D" unique_id=1471944816]
 script = ExtResource("1_a61m0")
 
 [node name="RhythmScene" parent="." unique_id=241672643 instance=ExtResource("1_nf4vs")]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1017732481]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
-fov = 90.0
-
 [node name="Music" parent="." unique_id=1534901998 instance=ExtResource("2_cn5mv")]
 
 [node name="Skybox" type="Node3D" parent="." unique_id=1346251545]
 
 [node name="SkyGradient" type="MeshInstance3D" parent="Skybox" unique_id=959556197]
-transform = Transform3D(-6.993822e-07, 0, 16, 0, 8, 0, -16, 0, -6.993822e-07, 0, 0, 0)
+transform = Transform3D(-6.993822e-07, 0, 64, 0, 8, 0, -16, 0, -2.7975289e-06, 0, 0, 0)
 mesh = SubResource("CylinderMesh_wjago")
 surface_material_override/0 = SubResource("StandardMaterial3D_thvsl")
 
 [node name="PreviewStats" parent="." unique_id=1668668830 instance=ExtResource("4_cnvne")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1625845362]
+transform = Transform3D(1, 0, 0, 0, -4.3711387e-10, -1, 0, 0.01, -4.371139e-08, 0, -6, -6)
+material_override = SubResource("StandardMaterial3D_c1nar")
+amount = 20
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_cnvne")
+draw_pass_1 = SubResource("SphereMesh_ychec")
