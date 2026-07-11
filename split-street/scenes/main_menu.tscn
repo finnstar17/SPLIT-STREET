@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://8uk4ub3fdyjm"]
+
+[ext_resource type="FontFile" uid="uid://bvwomvi5b27n1" path="res://fonts/Masterpiece.ttf" id="1_l6cm7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vue75"]
+flip_faces = true
+radial_segments = 6
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6cm7"]
+shading_mode = 0
+albedo_color = Color(0.05, 0.05, 0.1, 1)
+
+[sub_resource type="Gradient" id="Gradient_ekxnf"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_thvsl"]
+gradient = SubResource("Gradient_ekxnf")
+fill_from = Vector2(1, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqqt6"]
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_thvsl")
+uv1_offset = Vector3(0, 0.008, 0)
+
+[sub_resource type="Gradient" id="Gradient_wu84c"]
+offsets = PackedFloat32Array(0, 0.50688076, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c1nar"]
+gradient = SubResource("Gradient_wu84c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ln24"]
+emission_shape = 3
+emission_box_extents = Vector3(12, 0, 3)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 30.0
+color = Color(0, 0, 0.5, 1)
+color_ramp = SubResource("GradientTexture1D_c1nar")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.14999998
+
+[sub_resource type="SphereMesh" id="SphereMesh_rtw2f"]
+height = 0.001
+radial_segments = 32
+rings = 4
+
+[node name="MainMenu" type="Node3D" unique_id=357816684]
+
+[node name="Skybox" type="Node3D" parent="." unique_id=1695620956]
+
+[node name="SkyGradient" type="MeshInstance3D" parent="Skybox" unique_id=533524535]
+transform = Transform3D(-6.993822e-07, 0, 64, 0, 32, 0, -16, 0, -2.7975289e-06, 0, 0, 0)
+mesh = SubResource("CylinderMesh_vue75")
+surface_material_override/0 = SubResource("StandardMaterial3D_l6cm7")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1986881391]
+transform = Transform3D(0.9914448, -3.7395863e-12, -0.13052624, -0.13052624, -5.705483e-11, -0.9914448, -3.7395864e-10, 0.01, -5.705483e-09, 0, -3, -6)
+material_override = SubResource("StandardMaterial3D_bqqt6")
+amount = 30
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_8ln24")
+draw_pass_1 = SubResource("SphereMesh_rtw2f")
+
+[node name="Title" type="Node3D" parent="." unique_id=1722373698]
+transform = Transform3D(0.9881361, -0.082706556, -0.12940954, 0.06570692, 0.9892652, -0.1305262, 0.1388157, 0.12047455, 0.98296297, -0.6, 0.4, -3)
+
+[node name="SplitLabel" type="Label3D" parent="Title" unique_id=1883193925]
+text = "SPLIT"
+font = ExtResource("1_l6cm7")
+font_size = 400
+outline_size = 0
+
+[node name="StreetLabel" type="Label3D" parent="Title" unique_id=2067372804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1.5, 0)
+text = "STREET"
+font = ExtResource("1_l6cm7")
+font_size = 450
+outline_size = 0

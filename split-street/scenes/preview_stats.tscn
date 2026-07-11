@@ -7,10 +7,20 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_irmg6"]
 
+[sub_resource type="Gradient" id="Gradient_12m6u"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1hdel"]
+gradient = SubResource("Gradient_12m6u")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xheyw"]
 blend_mode = 1
+cull_mode = 2
 shading_mode = 0
-albedo_color = Color(0.15, 0.15, 0.15, 1)
+albedo_color = Color(0.33, 0.33, 0.33, 1)
+albedo_texture = SubResource("GradientTexture2D_1hdel")
+uv1_offset = Vector3(0, 0.008, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhuxn"]
 resource_local_to_scene = true
@@ -24,7 +34,7 @@ script = ExtResource("1_1hdel")
 transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, -1.4, 0, -1.6)
 
 [node name="MainPlane" type="MeshInstance3D" parent="SongPreview" unique_id=1959911497]
-transform = Transform3D(0.8, 0, 0, 0, -4.371139e-08, -0.3, 0, 1, -1.3113417e-08, 0, 0, 0)
+transform = Transform3D(-0.8, -8.742278e-08, 1.1464113e-15, 0, -4.371139e-08, -0.3, 6.9938224e-08, -1, 1.3113417e-08, 0, 0, 0)
 mesh = SubResource("PlaneMesh_irmg6")
 surface_material_override/0 = SubResource("StandardMaterial3D_xheyw")
 
@@ -53,8 +63,8 @@ text = "Song Name
 
 "
 font = ExtResource("2_rhuxn")
-font_size = 100
-outline_size = 20
+font_size = 90
+outline_size = 18
 horizontal_alignment = 0
 vertical_alignment = 2
 line_spacing = -20.0

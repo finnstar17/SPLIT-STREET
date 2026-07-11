@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ci1te3ggs5i2v"]
 
 [ext_resource type="Script" uid="uid://bgni513rp7u8a" path="res://scripts/home.gd" id="1_krot7"]
+[ext_resource type="Script" uid="uid://cjqjtn1sxptsv" path="res://scripts/very_complex_scripts/camera_3d.gd" id="2_u4wd2"]
 
 [node name="Home" type="Node3D" unique_id=850447393]
 script = ExtResource("1_krot7")
@@ -8,3 +9,17 @@ script = ExtResource("1_krot7")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1962519954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
 fov = 90.0
+script = ExtResource("2_u4wd2")
+
+[node name="BlackScreen" type="Node2D" parent="." unique_id=147621615]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BlackScreen" unique_id=280126996]
+
+[node name="ColorRect" type="ColorRect" parent="BlackScreen/CanvasLayer" unique_id=1977301206]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

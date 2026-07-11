@@ -1,11 +1,11 @@
 {
-	"title": "Trick Room",
+	"title": "Trick Room (Short Ver.)",
 	"artist": "Koraii",
 	"file": "res://music_related/music/Trick Room.mp3",
 	"cover": "res://images/song_covers/Trick Room.jpg",
 	"bpm": 160.0,
 	"spacing": 4.0,
-	"offset": 47.68,
+	"offset": 48,
 	"note_data": {
 		"1": {
 			"notes": [
@@ -91,8 +91,6 @@
 				{"pos": 0.0, "line": 1.0, "plane": 2.0, "type": 2},
 				{"pos": 1.0, "line": 4.0, "plane": 1.0, "type": 2},
 				{"pos": 1.0, "line": 1.0, "plane": 2.0, "type": 2},
-				{"pos": 4.0, "line": 2.0, "plane": 2.0},
-				{"pos": 4.0, "line": 3.0, "plane": 2.0},
 				{"pos": 5.0, "line": 1.0, "plane": 1.0, "length": 2.0},
 				{"pos": 5.0, "line": 4.0, "plane": 1.0, "length": 2.0}			
 			]
@@ -103,8 +101,6 @@
 				{"pos": 0.0, "line": 2.0, "plane": 1.0, "type": 2},
 				{"pos": 1.0, "line": 3.0, "plane": 2.0, "type": 2},
 				{"pos": 1.0, "line": 2.0, "plane": 1.0, "type": 2},
-				{"pos": 4.0, "line": 2.0, "plane": 1.0},
-				{"pos": 4.0, "line": 3.0, "plane": 1.0},
 				{"pos": 5.0, "line": 1.0, "plane": 2.0, "length": 2.0},
 				{"pos": 5.0, "line": 4.0, "plane": 2.0, "length": 2.0}			
 			]
@@ -189,6 +185,54 @@
 				{"pos": 6.0, "line": 3.0, "plane": 1.0},
 				{"pos": 6.5, "line": 2.0, "plane": 1.0},
 				{"pos": 7.0, "line": 3.0, "plane": 1.0}
+			]
+		},
+		"17": {
+			"notes": [
+				{"pos": 0.0, "line": 1.0, "plane": 1.0, "type": 2},
+				{"pos": 0.0, "line": 4.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 1.0, "plane": 2.0},
+				{"pos": 1.0, "line": 4.0, "plane": 2.0},
+				{"pos": 3.0, "line": 3.0, "plane": 2.0, "length": 1.0},
+				{"pos": 3.0, "line": 2.0, "plane": 1.0, "length": 1.0},
+				{"pos": 5.0, "line": 3.0, "plane": 1.0, "length": 2.0},
+				{"pos": 5.0, "line": 2.0, "plane": 2.0, "length": 2.0}
+			]
+		},
+		"18": {
+			"notes": [
+				{"pos": 0.0, "line": 1.0, "plane": 2.0, "type": 2},
+				{"pos": 0.0, "line": 2.0, "plane": 2.0, "type": 2},
+				{"pos": 1.0, "line": 3.0, "plane": 1.0, "type": 2},
+				{"pos": 1.0, "line": 4.0, "plane": 1.0, "type": 2},
+				{"pos": 5.0, "line": 1.0, "plane": 2.0, "length": 2.0},
+				{"pos": 5.0, "line": 4.0, "plane": 2.0, "length": 2.0}
+			]
+		},
+		"19": {
+			"notes": [
+				{"pos": 0.0, "line": 1.0, "plane": 1.0},
+				{"pos": 1.0, "line": 2.0, "plane": 1.0},
+				{"pos": 2.0, "line": 3.0, "plane": 1.0},
+				{"pos": 3.0, "line": 4.0, "plane": 2.0},
+				{"pos": 4.0, "line": 3.0, "plane": 2.0},
+				{"pos": 5.0, "line": 2.0, "plane": 2.0},
+				{"pos": 6.0, "line": 1.0, "plane": 1.0, "type": 2},
+				{"pos": 6.0, "line": 4.0, "plane": 1.0, "type": 2},
+				{"pos": 7.0, "line": 1.0, "plane": 2.0},
+				{"pos": 7.0, "line": 4.0, "plane": 2.0}
+			]
+		},
+		"20": {
+			"notes": [
+				{"pos": 1.0, "line": 2.0, "plane": 2.0},
+				{"pos": 1.0, "line": 3.0, "plane": 2.0},
+				{"pos": 2.0, "line": 1.0, "plane": 1.0, "length": 1.0},
+				{"pos": 2.0, "line": 4.0, "plane": 1.0, "length": 1.0},
+				{"pos": 4.0, "line": 2.0, "plane": 1.0},
+				{"pos": 4.0, "line": 3.0, "plane": 1.0},
+				{"pos": 5.0, "line": 1.0, "plane": 2.0, "length": 2.0},
+				{"pos": 5.0, "line": 4.0, "plane": 2.0, "length": 2.0}
 			]
 		}
 	}

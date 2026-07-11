@@ -22,6 +22,8 @@ var goods = 0
 var oks = 0
 var misseds = 0
 
+var game_mode = "in_game"
+
 # song loader
 func set_current_song(path : String):
 	current_song = path

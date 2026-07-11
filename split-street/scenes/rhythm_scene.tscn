@@ -5,6 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://rvlluf06gwm5" path="res://scenes/bar_scene.tscn" id="2_duycn"]
 [ext_resource type="PackedScene" uid="uid://brqxr53voawm3" path="res://scenes/road_boundary.tscn" id="4_ne5c5"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_ne5c5"]
+
+[sub_resource type="Gradient" id="Gradient_ne5c5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yayuw"]
+gradient = SubResource("Gradient_ne5c5")
+fill_from = Vector2(0.4940171, 0.4940171)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c12l5"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.33, 0.33, 0.33, 1)
+albedo_texture = SubResource("GradientTexture2D_yayuw")
+uv1_offset = Vector3(-0.008, 0.008, 0)
+
 [node name="RhythmScene" type="Node3D" unique_id=241672643]
 script = ExtResource("1_y55il")
 
@@ -50,10 +67,30 @@ line = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
 
 [node name="BottomPlane" type="Node3D" parent="." unique_id=1748099579]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -2.6)
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -2.3)
+
+[node name="GradientMeshLeft" type="MeshInstance3D" parent="BottomPlane" unique_id=2141147667]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 2.3, -0.5, 0, 0)
+mesh = SubResource("PlaneMesh_ne5c5")
+surface_material_override/0 = SubResource("StandardMaterial3D_c12l5")
+
+[node name="GradientMeshRight" type="MeshInstance3D" parent="BottomPlane" unique_id=1355562064]
+transform = Transform3D(-0.5, 1.509958e-07, 0, -7.54979e-08, -1, 0, 0, 0, 2.3, 0.5, 0, 0)
+mesh = SubResource("PlaneMesh_ne5c5")
+surface_material_override/0 = SubResource("StandardMaterial3D_c12l5")
 
 [node name="TopPlane" type="Node3D" parent="." unique_id=1483073853]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -2.3)
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -2.3)
+
+[node name="GradientMeshLeft" type="MeshInstance3D" parent="TopPlane" unique_id=782339160]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 2.3, -0.5, 0, 0)
+mesh = SubResource("PlaneMesh_ne5c5")
+surface_material_override/0 = SubResource("StandardMaterial3D_c12l5")
+
+[node name="GradientMeshRight" type="MeshInstance3D" parent="TopPlane" unique_id=1398592673]
+transform = Transform3D(-0.5, 1.509958e-07, 0, -7.54979e-08, -1, 0, 0, 0, 2.3, 0.5, 0, 0)
+mesh = SubResource("PlaneMesh_ne5c5")
+surface_material_override/0 = SubResource("StandardMaterial3D_c12l5")
 
 [node name="RoadBoundaries" type="Node3D" parent="." unique_id=332764510]
 
@@ -64,7 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
 
 [node name="RightBoundary" parent="RoadBoundaries/BottomBounds" unique_id=1787428317 instance=ExtResource("4_ne5c5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.9, 0, 0)
 
 [node name="TopBounds" type="Node3D" parent="RoadBoundaries" unique_id=1357925245]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0.6, 0)
@@ -73,4 +110,4 @@ transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
 
 [node name="RightBoundary" parent="RoadBoundaries/TopBounds" unique_id=1810172537 instance=ExtResource("4_ne5c5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.9, 0, 0)

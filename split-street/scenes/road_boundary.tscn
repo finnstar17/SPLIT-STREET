@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://brqxr53voawm3"]
 
 [ext_resource type="Material" uid="uid://cujnhjqjtb7oj" path="res://materials/white_faded.tres" id="1_f6cnd"]
+[ext_resource type="Script" uid="uid://cnopvtwy2400b" path="res://scripts/road_boundary.gd" id="1_j2pdc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f6cnd"]
 
 [node name="RoadBoundary" type="Node3D" unique_id=826048111]
+script = ExtResource("1_j2pdc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1296798668]
 transform = Transform3D(0.03, 0, 0, 0, 1, 0, 0, 0, 2.3, 0, 0, -2.3)

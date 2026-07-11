@@ -14,11 +14,11 @@ func setup(game):
 	bar_spacing = game.bar_spacing * 1.5
 	current_location = Vector3(0, 0, -bar_spacing)
 
-	bars_node.position = Vector3(0, 0, -bar_spacing * 0.5)
+	bars_node.position = Vector3(0, 0, -bar_spacing * 0.3)
 
 	add_bars()
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	bars_node.position += speed * delta
 
 	for bar in bars:
@@ -40,21 +40,21 @@ func spawn_bill():
 	var billboard = bill_scene.instantiate()
 	var rigidbody = billboard.get_node("RigidBody3D")
 	var collision_shape = rigidbody.get_node("CollisionShape3D")
-	var sprite = collision_shape.get_node("Sprite3D")
+	var label : Label3D = collision_shape.get_node("Label3D")
 	add_child(billboard)
 	billboard.position = Vector3(0, 0, -1)
 
 	if MainLoader.current_accuracy == 0:
-		sprite.texture = load("res://images/okbill.png")
+		label.text = "OK"
 	elif MainLoader.current_accuracy == 1:
-		sprite.texture = load("res://images/goodbill.png")
+		label.text = "GOOD"
 	elif MainLoader.current_accuracy == 2:
-		sprite.texture = load("res://images/greatbill.png")
+		label.text = "GREAT"
 	elif MainLoader.current_accuracy == 3:
-		sprite.texture = load("res://images/perfectbill.png")
+		label.text = "PERFECT"
 
 	var tween = create_tween()
-	tween.tween_property(sprite, "modulate:a", 0.0, 0.5)
+	tween.tween_property(label, "modulate:a", 0.0, 0.5)
 	tween.finished.connect(func(): self.remove_child(billboard))
 
 

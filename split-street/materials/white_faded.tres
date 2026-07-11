@@ -7,7 +7,9 @@ gradient = SubResource("Gradient_uduce")
 fill_to = Vector2(0, 1)
 
 [resource]
+resource_local_to_scene = true
 blend_mode = 1
+cull_mode = 2
 shading_mode = 0
 albedo_texture = SubResource("GradientTexture2D_f6cnd")
 uv1_offset = Vector3(0, 0.008, 0)
