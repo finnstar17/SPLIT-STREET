@@ -8,18 +8,24 @@ var bar_spacing
 var current_location
 var speed
 var old_note = 0
+var last_song_pos = 0.0
 
 func setup(game):
 	speed = Vector3(0, 0, game.speed * 1.5)
 	bar_spacing = game.bar_spacing * 1.5
 	current_location = Vector3(0, 0, -bar_spacing)
 
-	bars_node.position = Vector3(0, 0, -bar_spacing * 0.3)
+	bars_node.position = Vector3(0, 0, -bar_spacing * 0.25)
 
 	add_bars()
 
 func _process(delta: float) -> void:
-	bars_node.position += speed * delta
+	if MainLoader.started:
+		var new_delta = MainLoader.delta - last_song_pos
+		last_song_pos = MainLoader.delta
+		bars_node.position += speed * new_delta
+	else:
+		bars_node.position += speed * delta
 
 	for bar in bars:
 		if bar.global_position.z >= -1 and bar.detected == false:

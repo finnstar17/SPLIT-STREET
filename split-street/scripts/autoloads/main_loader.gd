@@ -24,6 +24,9 @@ var misseds = 0
 
 var game_mode = "in_game"
 
+var delta = 0.0
+var started = false
+
 # song loader
 func set_current_song(path : String):
 	current_song = path

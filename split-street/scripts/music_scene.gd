@@ -7,6 +7,8 @@ var started = false
 var pre_start
 var start_pos
 
+var song_pos = 0.0
+
 func _ready() -> void:
 	pass
 
@@ -26,6 +28,7 @@ func setup(game):
 func start():
 	started = true
 	player.play(start_pos)
+	MainLoader.started = true
 
 func _process(delta: float) -> void:
 	if not started:
@@ -37,6 +40,14 @@ func _process(delta: float) -> void:
 	var new_time = seconds_to_minutes(floored_time)
 	MainLoader.current_time = new_time
 	MainLoader.time_in_sec = floored_time
+
+	var base_pos = player.get_playback_position()
+	var last_mix = AudioServer.get_time_since_last_mix()
+	var latency = AudioServer.get_output_latency()
+	var time = base_pos + last_mix - latency
+	song_pos = max(song_pos, time)
+	MainLoader.delta = song_pos
+
 
 func seconds_to_minutes(seconds : float):
 	var minutes = floor(seconds / 60.0)
