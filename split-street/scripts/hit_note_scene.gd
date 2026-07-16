@@ -5,7 +5,6 @@ extends Node3D
 @export var type : int = 1
 @onready var note_mesh = $NoteMesh
 var pos = 0
-var is_hit = false
 var is_collected = false
 var missed = false
 var level = 0
@@ -15,18 +14,6 @@ var climb_note = preload("res://materials/note_type_stuff/climb_note.tres")
 
 func _ready():
 	_set_position()
-	
-#func _process(_delta: float) -> void:
-	#collect()
-
-	#if not is_collected:
-		#if global_position.z < -4.6:
-			#hide()
-		#else:
-			#show()
-		#if global_position.z > 0 and missed == false:
-			#missed = true
-			#MainLoader.current_combo = 0
 
 func _set_position():
 	var x_pos : float

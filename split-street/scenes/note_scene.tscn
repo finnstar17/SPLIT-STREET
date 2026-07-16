@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://cybx6waw4pwnu" path="res://scripts/note_scene.gd" id="1_ircua"]
 [ext_resource type="Material" uid="uid://meipyku4tq87" path="res://materials/note_materials/idle_note_material.tres" id="2_0klua"]
 [ext_resource type="Material" uid="uid://c85o2fr4hc5lc" path="res://materials/unshaded_white.tres" id="3_oiddk"]
+[ext_resource type="FontFile" uid="uid://bvwomvi5b27n1" path="res://fonts/Masterpiece.ttf" id="4_tjkhh"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vyp1h"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_vyp1h"]
-outer_radius = 0.575
+outer_radius = 0.55
 rings = 32
 ring_segments = 6
 
@@ -31,6 +32,14 @@ surface_material_override/0 = ExtResource("3_oiddk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2091643293]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_0klua")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=334410230]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.2, 0)
+billboard = 1
+text = "A"
+font = ExtResource("4_tjkhh")
+font_size = 100
+outline_size = 0
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_hit_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_hit_exited"]

@@ -6,10 +6,13 @@ var level = 0
 var picker : Node3D
 var direction : int
 var just_came_from : Node3D
-	
+var last_song_pos = MainLoader.delta
+
 func _process(delta: float) -> void:
 	var speed = MainLoader.current_speed
-	position += Vector3(0, (4.8 * delta) / speed * direction, 0)
+	var new_delta = MainLoader.delta - last_song_pos
+	last_song_pos = MainLoader.delta
+	position += Vector3(0, (4.8 * new_delta) / speed * direction, 0)
 
 	collect()
 

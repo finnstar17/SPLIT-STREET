@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 		if bar.global_position.z >= -1 and bar.detected == false:
 			bar.detected = true
 			MainLoader.bar_detected += 1
-		if bar.position.z + bars_node.position.z >= bar_spacing:
+		if bar.position.z + bars_node.position.z >= bar_spacing * 2:
 			MainLoader.current_bar += 1
 			remove_bar(bar)
 			add_bar()
@@ -76,6 +76,6 @@ func remove_bar(bar):
 	bars.erase(bar)
 
 func add_bars():
-	for i in range(3):
+	for i in range(4):
 		MainLoader.current_bar += 1
 		add_bar()

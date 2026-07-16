@@ -22,10 +22,11 @@ var goods = 0
 var oks = 0
 var misseds = 0
 
-var game_mode = "in_game"
+var game_mode = "menu"
 
 var delta = 0.0
 var started = false
+var congrats = false
 
 # song loader
 func set_current_song(path : String):

@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dfnp4li08f0js" path="res://scripts/very_complex_scripts/climb_note_scene.gd" id="1_14wpu"]
 [ext_resource type="Material" uid="uid://4k43x4bsxg8y" path="res://materials/note_type_stuff/climb_note.tres" id="2_14wpu"]
+[ext_resource type="Material" uid="uid://djfnrgjld3lyt" path="res://materials/note_type_stuff/climb_glow.tres" id="3_44keb"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7xy53"]
 radial_segments = 32
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7xy53"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ux3uf"]
+radial_segments = 32
+rings = 16
 
 [node name="MusicNote" type="Node3D" unique_id=251681079]
 script = ExtResource("1_14wpu")
@@ -21,6 +26,11 @@ surface_material_override/0 = ExtResource("2_14wpu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=392781430]
 transform = Transform3D(0.3, 0, 0, 0, 0.6, 0, 0, 0, 0.3, 0, 0, 0)
 shape = SubResource("BoxShape3D_7xy53")
+
+[node name="GlowMesh" type="MeshInstance3D" parent="." unique_id=1769699686]
+transform = Transform3D(0.75, 0, 0, 0, -4.3711387e-10, 0.5, 0, -0.01, -2.1855694e-08, 0, 0, 0)
+mesh = SubResource("SphereMesh_ux3uf")
+surface_material_override/0 = ExtResource("3_44keb")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_climb_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_climb_exited"]

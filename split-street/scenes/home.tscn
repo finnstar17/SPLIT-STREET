@@ -2,24 +2,71 @@
 
 [ext_resource type="Script" uid="uid://bgni513rp7u8a" path="res://scripts/home.gd" id="1_krot7"]
 [ext_resource type="Script" uid="uid://cjqjtn1sxptsv" path="res://scripts/very_complex_scripts/camera_3d.gd" id="2_u4wd2"]
+[ext_resource type="FontFile" uid="uid://bvwomvi5b27n1" path="res://fonts/Masterpiece.ttf" id="3_reixx"]
+[ext_resource type="PackedScene" uid="uid://8uk4ub3fdyjm" path="res://scenes/main_menu.tscn" id="3_w18ys"]
+[ext_resource type="AudioStream" uid="uid://3m5ohmm2n64s" path="res://music_related/roblox-congrats.mp3" id="5_uhids"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u4wd2"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_w18ys"]
+sky_material = SubResource("ProceduralSkyMaterial_u4wd2")
+
+[sub_resource type="Environment" id="Environment_reixx"]
+background_mode = 2
+sky = SubResource("Sky_w18ys")
+tonemap_agx_white = 2.0
+tonemap_agx_contrast = 1.5
+glow_enabled = true
+glow_intensity = 0.5
+glow_blend_mode = 2
+glow_map_strength = 0.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhids"]
+font = ExtResource("3_reixx")
+font_size = 60
 
 [node name="Home" type="Node3D" unique_id=850447393]
 script = ExtResource("1_krot7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=956348587]
+environment = SubResource("Environment_reixx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1962519954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
 fov = 90.0
 script = ExtResource("2_u4wd2")
 
-[node name="BlackScreen" type="Node2D" parent="." unique_id=147621615]
+[node name="IntroCard" type="Node2D" parent="." unique_id=2035697055]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="BlackScreen" unique_id=280126996]
+[node name="CanvasLayer" type="CanvasLayer" parent="IntroCard" unique_id=1487829055]
 
-[node name="ColorRect" type="ColorRect" parent="BlackScreen/CanvasLayer" unique_id=1977301206]
-modulate = Color(1, 1, 1, 0)
+[node name="ColorRect" type="ColorRect" parent="IntroCard/CanvasLayer" unique_id=1762182361]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="IntroCard/CanvasLayer" unique_id=111340052]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -33.5
+offset_right = 212.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_uhids")
+
+[node name="MainMenu" parent="." unique_id=357816684 instance=ExtResource("3_w18ys")]
+
+[node name="Hooray" type="AudioStreamPlayer" parent="." unique_id=2039921796]
+stream = ExtResource("5_uhids")

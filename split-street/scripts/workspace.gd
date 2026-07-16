@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 	stat_scene.scale.x = lerp(stat_scene.scale.x, 1.0, MainLoader.current_speed * delta * 2)
 
 	time_stuff.text = MainLoader.current_time + " / " + MainLoader.full_length
-	bar_timeline.scale.x = MainLoader.time_in_sec / MainLoader.length_in_sec
+	bar_timeline.scale.x = MainLoader.time_in_sec / float(MainLoader.length_in_sec)
 
 	actual_score.text = str(int(MainLoader.score))
 	actual_combo.text = str(MainLoader.current_combo) + "x"

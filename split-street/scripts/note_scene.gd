@@ -5,6 +5,7 @@ var active_note = preload("res://materials/note_materials/active_note_material.t
 
 @export_range(0, 8) var line : int
 @onready var note_mesh = $NoteMesh
+@onready var label = $Label3D
 @onready var note_effect = preload("res://scenes/note_effect.tscn")
 @onready var climb_note = preload("res://scenes/more_complex_scenes/climb_note_scene.tscn")
 
@@ -28,6 +29,30 @@ const ACTION_MAP = {
 
 func _ready():
 	note_mesh.set_surface_override_material(0, idle_note)
+
+	if line == 1:
+		label.text = "D"
+	elif line == 2:
+		label.text = "F"
+	elif line == 3:
+		label.text = "J"
+	elif line == 4:
+		label.text = "K"
+	elif line == 5:
+		label.text = "E"
+	elif line == 6:
+		label.text = "R"
+	elif line == 7:
+		label.text = "U"
+	elif line == 8:
+		label.text = "I" # dud i might know what im doing ✌️
+
+	var tween = label.create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.set_ease(Tween.EASE_IN)
+	var tween_transparency = tween.tween_property(label, "transparency", 1, 4)
+	tween_transparency.finished.connect(func(): label.queue_free())
+
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(ACTION_MAP[line]):

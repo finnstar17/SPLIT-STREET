@@ -10,7 +10,10 @@ var start_pos
 var song_pos = 0.0
 
 func _ready() -> void:
-	pass
+	player.finished.connect(func():
+		MainLoader.congrats = true
+		print("woohoo")
+		)
 
 func setup(game):
 	player.stream = game.audio

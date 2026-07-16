@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://8uk4ub3fdyjm"]
 
 [ext_resource type="FontFile" uid="uid://bvwomvi5b27n1" path="res://fonts/Masterpiece.ttf" id="1_l6cm7"]
+[ext_resource type="AudioStream" uid="uid://jfonkvr0f2a6" path="res://music_related/CARLOT32 (METAROOM REMIX).mp3" id="2_ekxnf"]
+[ext_resource type="FontFile" uid="uid://fiiah040nfgh" path="res://fonts/Montserrat-Medium.ttf" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://bu1i3tjsc1w6w" path="res://scripts/very_complex_scripts/any_key_label.gd" id="4_wu84c"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vue75"]
 flip_faces = true
@@ -15,22 +18,22 @@ albedo_color = Color(0.05, 0.05, 0.1, 1)
 
 [sub_resource type="Gradient" id="Gradient_ekxnf"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_thvsl"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cnvne"]
 gradient = SubResource("Gradient_ekxnf")
-fill_from = Vector2(1, 0.25)
+fill_from = Vector2(1, 0.2786325)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqqt6"]
 blend_mode = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource("GradientTexture2D_thvsl")
+albedo_texture = SubResource("GradientTexture2D_cnvne")
 uv1_offset = Vector3(0, 0.008, 0)
 
 [sub_resource type="Gradient" id="Gradient_wu84c"]
 offsets = PackedFloat32Array(0, 0.50688076, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_c1nar"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_thvsl"]
 gradient = SubResource("Gradient_wu84c")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ln24"]
@@ -39,17 +42,61 @@ emission_box_extents = Vector3(12, 0, 3)
 direction = Vector3(0, 0, 0)
 spread = 180.0
 gravity = Vector3(0, 0, 0)
-scale_min = 5.0
+scale_min = 10.0
 scale_max = 30.0
 color = Color(0, 0, 0.5, 1)
-color_ramp = SubResource("GradientTexture1D_c1nar")
-hue_variation_min = -2.2351742e-08
+color_ramp = SubResource("GradientTexture1D_thvsl")
+hue_variation_min = -0.050000023
 hue_variation_max = 0.14999998
 
 [sub_resource type="SphereMesh" id="SphereMesh_rtw2f"]
 height = 0.001
 radial_segments = 32
 rings = 4
+
+[sub_resource type="Gradient" id="Gradient_bqqt6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c1nar"]
+gradient = SubResource("Gradient_bqqt6")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wu84c"]
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_c1nar")
+uv1_scale = Vector3(1, 2, 1)
+uv1_offset = Vector3(0, 0.008, 0)
+
+[sub_resource type="Gradient" id="Gradient_8ln24"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kq4ke"]
+gradient = SubResource("Gradient_8ln24")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rtw2f"]
+emission_shape_scale = Vector3(2, 1, 2)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 90, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 0.75
+emission_ring_inner_radius = 0.74
+emission_ring_cone_angle = 75.0
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.99999774
+linear_accel_max = 0.99999774
+color = Color(0.67, 0.67, 0.67, 1)
+color_ramp = SubResource("GradientTexture1D_kq4ke")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oa1go"]
+top_radius = 0.03
+bottom_radius = 0.0
+height = 4.0
+radial_segments = 4
+rings = 0
 
 [node name="MainMenu" type="Node3D" unique_id=357816684]
 
@@ -60,16 +107,8 @@ transform = Transform3D(-6.993822e-07, 0, 64, 0, 32, 0, -16, 0, -2.7975289e-06, 
 mesh = SubResource("CylinderMesh_vue75")
 surface_material_override/0 = SubResource("StandardMaterial3D_l6cm7")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1986881391]
-transform = Transform3D(0.9914448, -3.7395863e-12, -0.13052624, -0.13052624, -5.705483e-11, -0.9914448, -3.7395864e-10, 0.01, -5.705483e-09, 0, -3, -6)
-material_override = SubResource("StandardMaterial3D_bqqt6")
-amount = 30
-lifetime = 5.0
-process_material = SubResource("ParticleProcessMaterial_8ln24")
-draw_pass_1 = SubResource("SphereMesh_rtw2f")
-
 [node name="Title" type="Node3D" parent="." unique_id=1722373698]
-transform = Transform3D(0.9881361, -0.082706556, -0.12940954, 0.06570692, 0.9892652, -0.1305262, 0.1388157, 0.12047455, 0.98296297, -0.6, 0.4, -3)
+transform = Transform3D(0.9881361, -0.082706556, -0.12940954, 0.06570692, 0.9892652, -0.1305262, 0.1388157, 0.12047455, 0.98296297, -0.6, 0.8, -3)
 
 [node name="SplitLabel" type="Label3D" parent="Title" unique_id=1883193925]
 text = "SPLIT"
@@ -82,4 +121,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1.5, 0)
 text = "STREET"
 font = ExtResource("1_l6cm7")
 font_size = 450
+outline_size = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=208865291]
+stream = ExtResource("2_ekxnf")
+volume_db = -3.0
+parameters/looping = true
+
+[node name="BackgroundParticles" type="GPUParticles3D" parent="." unique_id=1818504724]
+transform = Transform3D(1, 0, 0, 0, -4.3711387e-10, -1, 0, 0.01, -4.371139e-08, 0, -7, -6)
+material_override = SubResource("StandardMaterial3D_bqqt6")
+amount = 20
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_8ln24")
+draw_pass_1 = SubResource("SphereMesh_rtw2f")
+
+[node name="SpeedLines" type="GPUParticles3D" parent="." unique_id=357638933]
+transform = Transform3D(0.8660254, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.8660254, -3.7855173e-08, 2, 0, -4)
+material_override = SubResource("StandardMaterial3D_wu84c")
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_rtw2f")
+draw_pass_1 = SubResource("CylinderMesh_oa1go")
+
+[node name="AnyKeyLabel" type="Label3D" parent="." unique_id=1968348477]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.4, -2)
+text = "Press any key to start"
+font = ExtResource("3_bqqt6")
+font_size = 60
+outline_size = 0
+script = ExtResource("4_wu84c")
+
+[node name="SongLabel" type="Label3D" parent="." unique_id=1230838982]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.6, -2, -2)
+text = "Song: CARLOT32 (METAROOM REMIX) - Metaroom"
+font = ExtResource("3_bqqt6")
+font_size = 40
 outline_size = 0
