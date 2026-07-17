@@ -51,4 +51,4 @@ Due to my limited time, I decided to use songs I thought would sound nice for a 
 - Metaroom - **CARLOT32 (METAROOM REMIX)**
 
 ## License
-This project is licensed under the MIT License - see [MIT License](LICENSE) for more details.
+This project is licensed under the MIT License - see [MIT License](split-street/LICENSE) for more details.
