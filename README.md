@@ -49,6 +49,7 @@ Due to my limited time, I decided to use songs I thought would sound nice for a 
 
 - Koraii - **Trick Room**
 - Metaroom - **CARLOT32 (METAROOM REMIX)**
+- siinsticker - Masterpiece font (main font)
 
 ## In Regards to AI Usage
 AI was used minimally in this project for efficiency in charting. I originally charted the first half of Trick Room because it highlights the main mechanic, Climb notes. Due to the game's method in charting songs, I decided to skip manually changing each bar by having AI assist me in shifting those simple numbers by 32.
