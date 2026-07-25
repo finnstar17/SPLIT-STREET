@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clqewyne80wcv"
+path="res://.godot/imported/nano love.mp3-3ba9e224946c0818dc219fcbdb178a91.mp3str"
+
+[deps]
+
+source_file="res://music_related/music/nano love.mp3"
+dest_files=["res://.godot/imported/nano love.mp3-3ba9e224946c0818dc219fcbdb178a91.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

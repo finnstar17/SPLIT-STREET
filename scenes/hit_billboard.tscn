@@ -1,14 +1,22 @@
 [gd_scene format=3 uid="uid://cmw5rsmlgssvx"]
 
-[ext_resource type="Script" uid="uid://n16xr6djv38f" path="res://scenes/accuracy_label.gd" id="1_osmsl"]
+[ext_resource type="FontFile" uid="uid://bvwomvi5b27n1" path="res://fonts/Masterpiece.ttf" id="1_osmsl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_80rsf"]
 
 [node name="BillboardNode" type="Node3D" unique_id=900596795]
 
-[node name="Label3D" type="Label3D" parent="." unique_id=268256902]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
-billboard = 1
-text = "DALKSJFLALKA
-"
-font_size = 100
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1184200836]
+gravity_scale = 0.25
+linear_velocity = Vector3(0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1982977527]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("SphereShape3D_80rsf")
+disabled = true
+
+[node name="Label3D" type="Label3D" parent="RigidBody3D/CollisionShape3D" unique_id=1215687016]
+text = "PERFECT"
+font = ExtResource("1_osmsl")
+font_size = 120
 outline_size = 0
-script = ExtResource("1_osmsl")

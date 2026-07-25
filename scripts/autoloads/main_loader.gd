@@ -3,32 +3,35 @@ extends Node
 # all autoload variables
 
 var current_song : String
+var current_speed : float
+var quarter_note : float
 var current_accuracy : int
 var current_note_number = 0
-
-# bar manager
+var current_combo = 0
 var current_bar = 0
+var bar_detected = 0
+var score = 0
 
-func add_bar():
-	current_bar += 1
-	# print(str(current_bar))
+var current_time = ""
+var full_length = "0:00"
+var time_in_sec = 0
+var length_in_sec = 0
 
-func set_bar(number : int):
-	current_bar = number
+var perfects = 0
+var greats = 0
+var goods = 0
+var oks = 0
+var misseds = 0
 
-# accuracy manager
-func set_accuracy(new_accuracy : int):
-	current_accuracy = new_accuracy
+var game_mode = "menu"
 
-func add_note_number():
-	current_note_number += 1
+var delta = 0.0
+var started = false
+var congrats = false
 
-func set_note_number(new_number : int):
-	current_note_number = new_number
-
-# song manager
-func set_current_song(song : String):
-	current_song = song
+# song loader
+func set_current_song(path : String):
+	current_song = path
 
 # chart loader
 func load_chart(path : String):
