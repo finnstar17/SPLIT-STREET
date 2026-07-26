@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c01gadv1110p1"
+path="res://.godot/imported/meowsynth kawaii future bass was a mistake.mp3-8cd0739633cd04081f952309d51b2e64.mp3str"
+
+[deps]
+
+source_file="res://music_related/music/meowsynth kawaii future bass was a mistake.mp3"
+dest_files=["res://.godot/imported/meowsynth kawaii future bass was a mistake.mp3-8cd0739633cd04081f952309d51b2e64.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

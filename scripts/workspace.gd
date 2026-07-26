@@ -32,7 +32,7 @@ var artist
 var cover
 
 func _ready() -> void:
-	var song = charts.path_join("nano love.json")
+	var song = charts.path_join("meowsynth kawaii future bass was a mistake.json")
 	load_song(song)
 
 func _process(delta: float) -> void:
