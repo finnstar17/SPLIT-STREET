@@ -9,8 +9,5 @@ func _process(delta: float) -> void:
 
     var size_val_x = sin(total_time * speed) + 1
     var size_val_y = sin((total_time - 2) * speed) + 1
-    var size_x = 0.175 + (size_val_x * size_change)
-    var size_y = 0.175 + (size_val_y * size_change)
 
-    scale.x = size_x
-    scale.y = size_y
+    scale = Vector3(0.175 + (size_val_x * size_change), 0.175 + (size_val_y * size_change), 1)

@@ -8,6 +8,7 @@ fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 1)
 
 [resource]
+resource_local_to_scene = true
 blend_mode = 1
 cull_mode = 2
 shading_mode = 0

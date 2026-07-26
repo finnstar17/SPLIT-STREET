@@ -68,3 +68,5 @@ amount = 20
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_yxpmw")
 draw_pass_1 = SubResource("SphereMesh_rtea6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=210294259]
