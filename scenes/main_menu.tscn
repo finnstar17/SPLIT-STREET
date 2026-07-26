@@ -4,6 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://jfonkvr0f2a6" path="res://music_related/CARLOT32 (METAROOM REMIX).mp3" id="2_ekxnf"]
 [ext_resource type="FontFile" uid="uid://fiiah040nfgh" path="res://fonts/Montserrat-Medium.ttf" id="3_bqqt6"]
 [ext_resource type="Script" uid="uid://bu1i3tjsc1w6w" path="res://scripts/very_complex_scripts/any_key_label.gd" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://dmk58s3xyxllv" path="res://images/checker.png" id="5_8ln24"]
+[ext_resource type="Script" uid="uid://8xghoa4c0720" path="res://scripts/checker offset.gd" id="6_rtw2f"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vue75"]
 flip_faces = true
@@ -98,6 +100,15 @@ height = 4.0
 radial_segments = 4
 rings = 0
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_rtw2f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oa1go"]
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.1, 0.1, 0.1, 1)
+albedo_texture = ExtResource("5_8ln24")
+uv1_scale = Vector3(6, 6, 6)
+
 [node name="MainMenu" type="Node3D" unique_id=357816684]
 
 [node name="Skybox" type="Node3D" parent="." unique_id=1695620956]
@@ -157,3 +168,9 @@ text = "Song: CARLOT32 (METAROOM REMIX) - Metaroom"
 font = ExtResource("3_bqqt6")
 font_size = 40
 outline_size = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=543412650]
+transform = Transform3D(11.817693, -2.0521207, -0.36184436, 0, 2.0837786, -11.817693, 2.0837781, 11.638155, 2.0521212, 0, 0, -2)
+mesh = SubResource("PlaneMesh_rtw2f")
+surface_material_override/0 = SubResource("StandardMaterial3D_oa1go")
+script = ExtResource("6_rtw2f")

@@ -30,8 +30,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if moving_down:
-		var speed = MainLoader.current_speed / 1.5
-		position += Vector3(0, 4.8 * (delta / speed) * -direction, 0)
+		var speed = MainLoader.current_speed / 1.5 # i dunno what's up with the code but dividing it makes it faster for some reason
+		position += Vector3(0, 4.8 * (delta / speed) * -direction, 0) # negative direction because it's moving back down to the position it just came from eek
 	
 	collect()
 
