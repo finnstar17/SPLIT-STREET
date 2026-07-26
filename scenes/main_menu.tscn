@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://8uk4ub3fdyjm"]
 
+[ext_resource type="Script" uid="uid://c8ak3gg8xubue" path="res://scripts/very_complex_scripts/title.gd" id="1_jk1qb"]
 [ext_resource type="FontFile" uid="uid://bvwomvi5b27n1" path="res://fonts/Masterpiece.ttf" id="1_l6cm7"]
 [ext_resource type="AudioStream" uid="uid://jfonkvr0f2a6" path="res://music_related/CARLOT32 (METAROOM REMIX).mp3" id="2_ekxnf"]
 [ext_resource type="FontFile" uid="uid://fiiah040nfgh" path="res://fonts/Montserrat-Medium.ttf" id="3_bqqt6"]
-[ext_resource type="Script" uid="uid://bu1i3tjsc1w6w" path="res://scripts/very_complex_scripts/any_key_label.gd" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dmk58s3xyxllv" path="res://images/checker.png" id="5_8ln24"]
 [ext_resource type="Script" uid="uid://8xghoa4c0720" path="res://scripts/checker offset.gd" id="6_rtw2f"]
 [ext_resource type="Material" uid="uid://b30hrxsei8orn" path="res://materials/unshaded_black.tres" id="7_oa1go"]
 [ext_resource type="Texture2D" uid="uid://6r5wndjv5rmg" path="res://images/icons/arcana white.png" id="8_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://nli8yna4ukyy" path="res://images/circle_thing.png" id="9_jk1qb"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vue75"]
 flip_faces = true
@@ -107,11 +108,22 @@ rings = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oa1go"]
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(0.1, 0.1, 0.1, 1)
+albedo_color = Color(0.05, 0.05, 0.05, 1)
 albedo_texture = ExtResource("5_8ln24")
 uv1_scale = Vector3(4, 4, 4)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_oa1go"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5dd4i"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lgwnu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flqon"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.15, 0.15, 0.15, 1)
+albedo_texture = ExtResource("9_jk1qb")
 
 [node name="MainMenu" type="Node3D" unique_id=357816684]
 
@@ -123,7 +135,8 @@ mesh = SubResource("CylinderMesh_vue75")
 surface_material_override/0 = SubResource("StandardMaterial3D_l6cm7")
 
 [node name="Title" type="Node3D" parent="." unique_id=1722373698]
-transform = Transform3D(0.17166716, -0.008797522, -0.032832794, 0, 0.16903701, -0.04529333, 0.033991013, 0.04443073, 0.16581774, 0.25, 0.35, -0.5)
+transform = Transform3D(0.17166716, -0.008797522, -0.032832794, 0, 0.16903701, -0.04529333, 0.033991013, 0.04443073, 0.16581774, 0.25, 0.4, -0.5)
+script = ExtResource("1_jk1qb")
 
 [node name="SplitLabel" type="Label3D" parent="Title" unique_id=1883193925]
 text = "SPLIT"
@@ -138,24 +151,23 @@ font = ExtResource("1_l6cm7")
 font_size = 450
 outline_size = 0
 
+[node name="MadeBy" type="Label3D" parent="Title" unique_id=245195518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, -2.2, 0)
+text = "Demo by finnstar17"
+font = ExtResource("3_bqqt6")
+font_size = 60
+outline_size = 0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=208865291]
 stream = ExtResource("2_ekxnf")
 volume_db = -3.0
 parameters/looping = true
 
-[node name="AnyKeyLabel" type="Label3D" parent="." unique_id=1968348477]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.4, -2)
-text = "Press any key to start"
-font = ExtResource("3_bqqt6")
-font_size = 60
-outline_size = 0
-script = ExtResource("4_wu84c")
-
 [node name="SongLabel" type="Label3D" parent="." unique_id=1230838982]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.6, -2, -2)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.65, -0.5, -0.3)
 text = "Song: CARLOT32 (METAROOM REMIX) - Metaroom"
 font = ExtResource("3_bqqt6")
-font_size = 40
+font_size = 30
 outline_size = 0
 
 [node name="Background" type="Node3D" parent="." unique_id=1731957867]
@@ -169,7 +181,7 @@ process_material = SubResource("ParticleProcessMaterial_8ln24")
 draw_pass_1 = SubResource("SphereMesh_rtw2f")
 
 [node name="SpeedLines" type="GPUParticles3D" parent="Background" unique_id=357638933]
-transform = Transform3D(0.9238795, 0.37940952, -0.049950235, 0, 0.13052624, 0.9914448, 0.38268346, -0.9159756, 0.12059052, 2, 0.2, -4)
+transform = Transform3D(0.9238795, 0.37940952, -0.049950235, 0, 0.13052624, 0.9914448, 0.38268346, -0.9159756, 0.12059052, 2, 0.7, -4)
 material_override = SubResource("StandardMaterial3D_wu84c")
 amount = 60
 process_material = SubResource("ParticleProcessMaterial_rtw2f")
@@ -182,13 +194,27 @@ surface_material_override/0 = SubResource("StandardMaterial3D_oa1go")
 script = ExtResource("6_rtw2f")
 
 [node name="ButtonBackground" type="MeshInstance3D" parent="Background" unique_id=1702953711]
-transform = Transform3D(1.7320508, 0.48296288, 0.38822865, 0, 0.25881904, -2.8977776, -1, 0.8365162, 0.6724317, -2.05, 0, -0.8)
+transform = Transform3D(1.4142135, 0.61237246, 4.2426405, 0, 0.49999997, -10.392305, -1.4142135, 0.61237246, 4.2426405, -1.8, 0, -0.8)
 mesh = SubResource("PlaneMesh_oa1go")
 surface_material_override/0 = ExtResource("7_oa1go")
 
 [node name="Icons" type="Node3D" parent="." unique_id=1975891442]
 
 [node name="Sprite3D" type="Sprite3D" parent="Icons" unique_id=1055482285]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.8, -1.1, -1)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.775, -1.075, -1)
 pixel_size = 0.001
 texture = ExtResource("8_tbmy8")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=102706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -1.7, -1)
+gravity_scale = 0.0
+angular_velocity = Vector3(0, 0, 0.1308997)
+angular_damp_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1689938938]
+shape = SubResource("BoxShape3D_5dd4i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=110899239]
+transform = Transform3D(1.7, 0, 0, 0, -7.430936e-08, -1.7, 0, 1.7, -7.430936e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_lgwnu")
+surface_material_override/0 = SubResource("StandardMaterial3D_flqon")

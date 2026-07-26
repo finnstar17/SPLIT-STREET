@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://cjqjtn1sxptsv" path="res://scripts/very_complex_scripts/camera_3d.gd" id="2_u4wd2"]
 [ext_resource type="FontFile" uid="uid://bvwomvi5b27n1" path="res://fonts/Masterpiece.ttf" id="3_reixx"]
 [ext_resource type="PackedScene" uid="uid://8uk4ub3fdyjm" path="res://scenes/main_menu.tscn" id="3_w18ys"]
+[ext_resource type="Script" uid="uid://brtrk84aqoddc" path="res://scripts/very_complex_scripts/play_button.gd" id="5_mahjx"]
 [ext_resource type="AudioStream" uid="uid://3m5ohmm2n64s" path="res://music_related/roblox-congrats.mp3" id="5_uhids"]
+[ext_resource type="Script" uid="uid://ckgbqts5wprr4" path="res://scripts/very_complex_scripts/settings_button.gd" id="6_mahjx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u4wd2"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -29,6 +31,8 @@ glow_map_strength = 0.5
 font = ExtResource("3_reixx")
 font_size = 60
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhids"]
+
 [node name="Home" type="Node3D" unique_id=850447393]
 script = ExtResource("1_krot7")
 
@@ -50,6 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="IntroCard/CanvasLayer" unique_id=111340052]
@@ -67,6 +72,42 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_uhids")
 
 [node name="MainMenu" parent="." unique_id=357816684 instance=ExtResource("3_w18ys")]
+
+[node name="PlayButton" type="Node3D" parent="MainMenu" unique_id=2121728104]
+transform = Transform3D(0.96592575, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.96592575, -0.9, -0.2, -0.5)
+script = ExtResource("5_mahjx")
+
+[node name="Label3D" type="Label3D" parent="MainMenu/PlayButton" unique_id=1499075304]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+text = "Play"
+font = ExtResource("3_reixx")
+font_size = 100
+outline_size = 0
+
+[node name="Area3D" type="Area3D" parent="MainMenu/PlayButton" unique_id=881369511 groups=["button_group"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainMenu/PlayButton/Area3D" unique_id=318059427]
+transform = Transform3D(0.5, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_uhids")
+
+[node name="SettingsButton" type="Node3D" parent="MainMenu" unique_id=1416715990]
+transform = Transform3D(0.96592575, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.96592575, -0.65, -0.4, -0.5)
+script = ExtResource("6_mahjx")
+
+[node name="Label3D" type="Label3D" parent="MainMenu/SettingsButton" unique_id=1628407183]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+modulate = Color(0.5, 0.5, 0.5, 1)
+text = "Settings
+"
+font = ExtResource("3_reixx")
+font_size = 100
+outline_size = 0
+
+[node name="Area3D" type="Area3D" parent="MainMenu/SettingsButton" unique_id=1970128126 groups=["button_group"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainMenu/SettingsButton/Area3D" unique_id=1772895005]
+transform = Transform3D(0.7, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_uhids")
 
 [node name="Hooray" type="AudioStreamPlayer" parent="." unique_id=2039921796]
 stream = ExtResource("5_uhids")

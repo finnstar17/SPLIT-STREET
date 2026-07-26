@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://xxf617vhg2l2"]
+
+[ext_resource type="Script" uid="uid://kxjyw5uv2dfp" path="res://scripts/very_complex_scripts/song_select.gd" id="1_kjvwo"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xx1hw"]
+flip_faces = true
+radial_segments = 6
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjvwo"]
+shading_mode = 0
+albedo_color = Color(0.05, 0.05, 0.1, 1)
+
+[sub_resource type="Gradient" id="Gradient_xx1hw"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cnvne"]
+gradient = SubResource("Gradient_xx1hw")
+fill_from = Vector2(1, 0.2786325)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fi1wv"]
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_cnvne")
+uv1_offset = Vector3(0, 0.008, 0)
+
+[sub_resource type="Gradient" id="Gradient_f7aea"]
+offsets = PackedFloat32Array(0, 0.50688076, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_thvsl"]
+gradient = SubResource("Gradient_f7aea")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yxpmw"]
+emission_shape = 3
+emission_box_extents = Vector3(12, 0, 3)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 10.0
+scale_max = 30.0
+color = Color(0, 0, 0.5, 1)
+color_ramp = SubResource("GradientTexture1D_thvsl")
+hue_variation_min = -0.050000023
+hue_variation_max = 0.14999998
+
+[sub_resource type="SphereMesh" id="SphereMesh_rtea6"]
+height = 0.001
+radial_segments = 32
+rings = 4
+
+[node name="SongSelect" type="Node3D" unique_id=1910428399]
+script = ExtResource("1_kjvwo")
+
+[node name="Skybox" type="Node3D" parent="." unique_id=43415554]
+
+[node name="SkyGradient" type="MeshInstance3D" parent="Skybox" unique_id=168858251]
+transform = Transform3D(-6.993822e-07, 0, 64, 0, 32, 0, -16, 0, -2.7975289e-06, 0, 0, 0)
+mesh = SubResource("CylinderMesh_xx1hw")
+surface_material_override/0 = SubResource("StandardMaterial3D_kjvwo")
+
+[node name="BackgroundParticles" type="GPUParticles3D" parent="." unique_id=1826080603]
+transform = Transform3D(1, 0, 0, 0, -4.3711387e-10, -1, 0, 0.01, -4.371139e-08, 0, -7, -6)
+material_override = SubResource("StandardMaterial3D_fi1wv")
+amount = 20
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_yxpmw")
+draw_pass_1 = SubResource("SphereMesh_rtea6")

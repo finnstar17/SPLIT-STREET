@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var workspace = preload("res://scenes/workspace.tscn")
+@onready var song_select = preload("res://scenes/song_select.tscn")
 @onready var main_menu = $MainMenu
 @onready var menu_music = $MainMenu/AudioStreamPlayer
 @onready var intro_card = $IntroCard
@@ -26,24 +27,25 @@ func _ready() -> void:
 	fade(0)
 	can_play = true
 
-func _input(event):
-	if event is InputEventKey:
-		if event.pressed:
-			if not started and can_play:
-				started = true
-				fade(1)
+func start():
+	if not started and can_play:
+		started = true
+		fade(1)
 
-				var volume_tween = menu_music.create_tween()
-				volume_tween.tween_property(menu_music, "volume_db", -80.0, 0.5)
+		var volume_tween = menu_music.create_tween()
+		volume_tween.tween_property(menu_music, "volume_db", -80.0, 0.5)
 
-				await get_tree().create_timer(0.5).timeout # yeah nah why in the world is this SO long.
-				fade(0)
+		await get_tree().create_timer(0.5).timeout # yeah nah why in the world is this SO long.
+		fade(0)
 
-				main_menu.queue_free()
-				MainLoader.game_mode = "in_game"
+		main_menu.queue_free()
+		MainLoader.game_mode = "in_game"
 
-				var new_workspace = workspace.instantiate()
-				add_child(new_workspace)
+		var new_select = song_select.instantiate()
+		add_child(new_select)
+
+		#var new_workspace = workspace.instantiate()
+		#add_child(new_workspace)
 			
 func fade(transparency : float):
 	var color_rect = $IntroCard/CanvasLayer/ColorRect
