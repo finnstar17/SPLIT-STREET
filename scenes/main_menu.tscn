@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bu1i3tjsc1w6w" path="res://scripts/very_complex_scripts/any_key_label.gd" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dmk58s3xyxllv" path="res://images/checker.png" id="5_8ln24"]
 [ext_resource type="Script" uid="uid://8xghoa4c0720" path="res://scripts/checker offset.gd" id="6_rtw2f"]
+[ext_resource type="Material" uid="uid://b30hrxsei8orn" path="res://materials/unshaded_black.tres" id="7_oa1go"]
+[ext_resource type="Texture2D" uid="uid://6r5wndjv5rmg" path="res://images/icons/arcana white.png" id="8_tbmy8"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vue75"]
 flip_faces = true
@@ -107,7 +109,9 @@ blend_mode = 1
 shading_mode = 0
 albedo_color = Color(0.1, 0.1, 0.1, 1)
 albedo_texture = ExtResource("5_8ln24")
-uv1_scale = Vector3(6, 6, 6)
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oa1go"]
 
 [node name="MainMenu" type="Node3D" unique_id=357816684]
 
@@ -119,7 +123,7 @@ mesh = SubResource("CylinderMesh_vue75")
 surface_material_override/0 = SubResource("StandardMaterial3D_l6cm7")
 
 [node name="Title" type="Node3D" parent="." unique_id=1722373698]
-transform = Transform3D(0.9881361, -0.082706556, -0.12940954, 0.06570692, 0.9892652, -0.1305262, 0.1388157, 0.12047455, 0.98296297, -0.6, 0.8, -3)
+transform = Transform3D(0.17166716, -0.008797522, -0.032832794, 0, 0.16903701, -0.04529333, 0.033991013, 0.04443073, 0.16581774, 0.25, 0.35, -0.5)
 
 [node name="SplitLabel" type="Label3D" parent="Title" unique_id=1883193925]
 text = "SPLIT"
@@ -139,21 +143,6 @@ stream = ExtResource("2_ekxnf")
 volume_db = -3.0
 parameters/looping = true
 
-[node name="BackgroundParticles" type="GPUParticles3D" parent="." unique_id=1818504724]
-transform = Transform3D(1, 0, 0, 0, -4.3711387e-10, -1, 0, 0.01, -4.371139e-08, 0, -7, -6)
-material_override = SubResource("StandardMaterial3D_bqqt6")
-amount = 20
-lifetime = 5.0
-process_material = SubResource("ParticleProcessMaterial_8ln24")
-draw_pass_1 = SubResource("SphereMesh_rtw2f")
-
-[node name="SpeedLines" type="GPUParticles3D" parent="." unique_id=357638933]
-transform = Transform3D(0.8660254, 0.5, 2.1855694e-08, 0, -4.371139e-08, 1, 0.5, -0.8660254, -3.7855173e-08, 2, 0, -4)
-material_override = SubResource("StandardMaterial3D_wu84c")
-amount = 60
-process_material = SubResource("ParticleProcessMaterial_rtw2f")
-draw_pass_1 = SubResource("CylinderMesh_oa1go")
-
 [node name="AnyKeyLabel" type="Label3D" parent="." unique_id=1968348477]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.4, -2)
 text = "Press any key to start"
@@ -169,8 +158,37 @@ font = ExtResource("3_bqqt6")
 font_size = 40
 outline_size = 0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=543412650]
-transform = Transform3D(11.817693, -2.0521207, -0.36184436, 0, 2.0837786, -11.817693, 2.0837781, 11.638155, 2.0521212, 0, 0, -2)
+[node name="Background" type="Node3D" parent="." unique_id=1731957867]
+
+[node name="BackgroundParticles" type="GPUParticles3D" parent="Background" unique_id=1818504724]
+transform = Transform3D(1, 0, 0, 0, -4.3711387e-10, -1, 0, 0.01, -4.371139e-08, 0, -7, -6)
+material_override = SubResource("StandardMaterial3D_bqqt6")
+amount = 20
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_8ln24")
+draw_pass_1 = SubResource("SphereMesh_rtw2f")
+
+[node name="SpeedLines" type="GPUParticles3D" parent="Background" unique_id=357638933]
+transform = Transform3D(0.9238795, 0.37940952, -0.049950235, 0, 0.13052624, 0.9914448, 0.38268346, -0.9159756, 0.12059052, 2, 0.2, -4)
+material_override = SubResource("StandardMaterial3D_wu84c")
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_rtw2f")
+draw_pass_1 = SubResource("CylinderMesh_oa1go")
+
+[node name="Checker" type="MeshInstance3D" parent="Background" unique_id=543412650]
+transform = Transform3D(11.817693, -2.0521207, -0.36184436, 0, 2.0837786, -11.817693, 2.0837781, 11.638155, 2.0521212, 0, 0, -2.5)
 mesh = SubResource("PlaneMesh_rtw2f")
 surface_material_override/0 = SubResource("StandardMaterial3D_oa1go")
 script = ExtResource("6_rtw2f")
+
+[node name="ButtonBackground" type="MeshInstance3D" parent="Background" unique_id=1702953711]
+transform = Transform3D(1.7320508, 0.48296288, 0.38822865, 0, 0.25881904, -2.8977776, -1, 0.8365162, 0.6724317, -2.05, 0, -0.8)
+mesh = SubResource("PlaneMesh_oa1go")
+surface_material_override/0 = ExtResource("7_oa1go")
+
+[node name="Icons" type="Node3D" parent="." unique_id=1975891442]
+
+[node name="Sprite3D" type="Sprite3D" parent="Icons" unique_id=1055482285]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.8, -1.1, -1)
+pixel_size = 0.001
+texture = ExtResource("8_tbmy8")
