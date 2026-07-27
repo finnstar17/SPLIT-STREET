@@ -1,12 +1,51 @@
 [gd_scene format=3 uid="uid://dnrorp5ycpoxd"]
 
+[ext_resource type="Script" uid="uid://c8ak3gg8xubue" path="res://scripts/very_complex_scripts/title.gd" id="1_ifsov"]
 [ext_resource type="Material" uid="uid://ddxtbje0a0hru" path="res://materials/glass_gradient.tres" id="1_ouegv"]
+[ext_resource type="FontFile" uid="uid://fiiah040nfgh" path="res://fonts/Montserrat-Medium.ttf" id="2_ixb13"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ixb13"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_ouegv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixb13"]
+resource_local_to_scene = true
+shading_mode = 0
+
 [node name="Template" type="Node3D" unique_id=226251805]
+script = ExtResource("1_ifsov")
 
 [node name="Background" type="MeshInstance3D" parent="." unique_id=439863905]
-transform = Transform3D(0.45, 0, 0, 0, -4.371139e-08, -0.6, 0, 1, -2.6226834e-08, 0, 0.1, -0.8)
+transform = Transform3D(0.45, 0, 0, 0, -4.371139e-08, -0.65, 0, 1, -2.8412401e-08, 0, 0.1, -0.8)
 mesh = SubResource("PlaneMesh_ixb13")
 surface_material_override/0 = ExtResource("1_ouegv")
+
+[node name="SongCover" type="MeshInstance3D" parent="." unique_id=1790103063]
+transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, -0.4, 0, 0.4, -1.7484556e-08, 0, 0.3, -0.799)
+mesh = SubResource("PlaneMesh_ouegv")
+surface_material_override/0 = SubResource("StandardMaterial3D_ixb13")
+
+[node name="SongName" type="Label3D" parent="." unique_id=1383409170]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.125, -0.799)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Song Name
+"
+font = ExtResource("2_ixb13")
+font_size = 80
+outline_size = 16
+vertical_alignment = 0
+autowrap_mode = 3
+width = 850.0
+
+[node name="Artist" type="Label3D" parent="." unique_id=1287742621]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.125, -0.799)
+modulate = Color(1, 1, 1, 0.5019608)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Artist
+"
+font = ExtResource("2_ixb13")
+font_size = 60
+outline_size = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 850.0

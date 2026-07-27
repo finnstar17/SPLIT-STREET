@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://xxf617vhg2l2"]
 
 [ext_resource type="Script" uid="uid://kxjyw5uv2dfp" path="res://scripts/very_complex_scripts/song_select.gd" id="1_kjvwo"]
+[ext_resource type="Texture2D" uid="uid://nli8yna4ukyy" path="res://images/circle_thing.png" id="2_fi1wv"]
+[ext_resource type="FontFile" uid="uid://bvwomvi5b27n1" path="res://fonts/Masterpiece.ttf" id="3_f7aea"]
+[ext_resource type="Script" uid="uid://ys3mwrarabjx" path="res://scripts/very_complex_scripts/start.gd" id="3_yxpmw"]
+[ext_resource type="Script" uid="uid://derbqafqxybiv" path="res://scripts/very_complex_scripts/directional_keys.gd" id="5_rtea6"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xx1hw"]
 flip_faces = true
@@ -51,13 +55,44 @@ height = 0.001
 radial_segments = 32
 rings = 4
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7aea"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yxpmw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtea6"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.05, 0.05, 0.05, 1)
+albedo_texture = ExtResource("2_fi1wv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fi1wv"]
+
+[sub_resource type="Gradient" id="Gradient_12m6u"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1hdel"]
+gradient = SubResource("Gradient_12m6u")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7aea"]
+resource_local_to_scene = true
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.33, 0.33, 0.33, 1)
+albedo_texture = SubResource("GradientTexture2D_1hdel")
+uv1_offset = Vector3(0, 0.008, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yxpmw"]
+
 [node name="SongSelect" type="Node3D" unique_id=1910428399]
 script = ExtResource("1_kjvwo")
 
 [node name="Skybox" type="Node3D" parent="." unique_id=43415554]
 
 [node name="SkyGradient" type="MeshInstance3D" parent="Skybox" unique_id=168858251]
-transform = Transform3D(-6.993822e-07, 0, 64, 0, 32, 0, -16, 0, -2.7975289e-06, 0, 0, 0)
+transform = Transform3D(-6.993822e-07, 0, 128, 0, 32, 0, -16, 0, -5.5950577e-06, 0, 0, 0)
 mesh = SubResource("CylinderMesh_xx1hw")
 surface_material_override/0 = SubResource("StandardMaterial3D_kjvwo")
 
@@ -70,3 +105,77 @@ process_material = SubResource("ParticleProcessMaterial_yxpmw")
 draw_pass_1 = SubResource("SphereMesh_rtea6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=210294259]
+volume_db = -80.0
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=182988474]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -2)
+gravity_scale = 0.0
+angular_velocity = Vector3(0, 0, 0.1308997)
+angular_damp_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1750273006]
+shape = SubResource("BoxShape3D_f7aea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=84458631]
+transform = Transform3D(1.7, 0, 0, 0, -7.430936e-08, -1.7, 0, 1.7, -7.430936e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_yxpmw")
+surface_material_override/0 = SubResource("StandardMaterial3D_rtea6")
+
+[node name="Background" type="MeshInstance3D" parent="." unique_id=71993963]
+transform = Transform3D(0.6, 0, 0, 0, -4.371139e-08, -0.2, 0, 1, -8.742278e-09, 0, -0.6, -0.4)
+mesh = SubResource("PlaneMesh_fi1wv")
+surface_material_override/0 = SubResource("StandardMaterial3D_f7aea")
+
+[node name="Buttons" type="Node3D" parent="." unique_id=2040963375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.4)
+
+[node name="Start" type="Node3D" parent="Buttons" unique_id=2005911935]
+script = ExtResource("3_yxpmw")
+
+[node name="Label3D" type="Label3D" parent="Buttons/Start" unique_id=868146958]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+text = "Start"
+font = ExtResource("3_f7aea")
+font_size = 90
+outline_size = 0
+
+[node name="Area3D" type="Area3D" parent="Buttons/Start" unique_id=2051812794]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Start/Area3D" unique_id=1046809143]
+transform = Transform3D(0.4, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_yxpmw")
+
+[node name="Left" type="Node3D" parent="Buttons" unique_id=648805391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
+script = ExtResource("5_rtea6")
+
+[node name="Label3D" type="Label3D" parent="Buttons/Left" unique_id=52158921]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+text = "<<"
+font = ExtResource("3_f7aea")
+font_size = 90
+outline_size = 0
+
+[node name="Area3D" type="Area3D" parent="Buttons/Left" unique_id=1827689941]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Left/Area3D" unique_id=1953550177]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_yxpmw")
+
+[node name="Right" type="Node3D" parent="Buttons" unique_id=1442457590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+
+[node name="Label3D" type="Label3D" parent="Buttons/Right" unique_id=836463674]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+text = ">>"
+font = ExtResource("3_f7aea")
+font_size = 90
+outline_size = 0
+
+[node name="Area3D" type="Area3D" parent="Buttons/Right" unique_id=763175964]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Right/Area3D" unique_id=1864483282]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_yxpmw")
+
+[node name="AllSongs" type="Node3D" parent="." unique_id=499147616]

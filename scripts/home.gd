@@ -11,6 +11,7 @@ var started = false
 var can_play = false
 var finished = false
 var skip_intro = true
+var playing = false
 
 func _ready() -> void:
 	if not skip_intro:
@@ -46,6 +47,20 @@ func start():
 
 		#var new_workspace = workspace.instantiate()
 		#add_child(new_workspace)
+
+func play_game():
+	if not playing:
+		playing = true
+		fade(1)
+
+		await get_tree().create_timer(0.5).timeout # yeah nah why in the world is this SO long.
+		fade(0)
+
+		var current_song_select = get_node("SongSelect")
+		current_song_select.queue_free()
+
+		var new_workspace = workspace.instantiate()
+		add_child(new_workspace)
 			
 func fade(transparency : float):
 	var color_rect = $IntroCard/CanvasLayer/ColorRect

@@ -130,7 +130,7 @@ albedo_texture = ExtResource("9_jk1qb")
 [node name="Skybox" type="Node3D" parent="." unique_id=1695620956]
 
 [node name="SkyGradient" type="MeshInstance3D" parent="Skybox" unique_id=533524535]
-transform = Transform3D(-6.993822e-07, 0, 64, 0, 32, 0, -16, 0, -2.7975289e-06, 0, 0, 0)
+transform = Transform3D(-6.993822e-07, 0, 128, 0, 32, 0, -16, 0, -5.5950577e-06, 0, 0, 0)
 mesh = SubResource("CylinderMesh_vue75")
 surface_material_override/0 = SubResource("StandardMaterial3D_l6cm7")
 
