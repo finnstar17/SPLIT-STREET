@@ -1,7 +1,14 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://b30hrxsei8orn"]
 
+[sub_resource type="Gradient" id="Gradient_ad8g8"]
+colors = PackedColorArray(0, 0, 0, 0.7490196, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6owlx"]
+gradient = SubResource("Gradient_ad8g8")
+fill_from = Vector2(0.85982907, 0)
+
 [resource]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(0, 0, 0, 0.7490196)
+albedo_texture = SubResource("GradientTexture2D_6owlx")
 uv1_offset = Vector3(-0.008, 0, 0)
