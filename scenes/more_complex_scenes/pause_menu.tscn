@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b7bcch1hbd71h"]
+
+[ext_resource type="Material" uid="uid://b30hrxsei8orn" path="res://materials/unshaded_black.tres" id="1_4cuc5"]
+[ext_resource type="FontFile" uid="uid://bvwomvi5b27n1" path="res://fonts/Masterpiece.ttf" id="2_j4okt"]
+[ext_resource type="Script" uid="uid://d2talknn8xepf" path="res://scripts/very_complex_scripts/continue_button.gd" id="3_crtqp"]
+[ext_resource type="Script" uid="uid://dd06r5sv7wll4" path="res://scripts/very_complex_scripts/exit_button.gd" id="4_crtqp"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ly4oc"]
+flip_faces = true
+radial_segments = 8
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_crtqp"]
+
+[node name="PauseMenu" type="Node3D" unique_id=1993020906]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1611133234]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+mesh = SubResource("CylinderMesh_ly4oc")
+surface_material_override/0 = ExtResource("1_4cuc5")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1379038179]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.1, 0)
+render_priority = 1
+text = "PAUSED
+"
+font = ExtResource("2_j4okt")
+font_size = 100
+outline_size = 0
+
+[node name="ContinueButton" type="Node3D" parent="." unique_id=1001289306]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -0.03, 0)
+script = ExtResource("3_crtqp")
+
+[node name="Label3D" type="Label3D" parent="ContinueButton" unique_id=329252068]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+render_priority = 1
+text = "Continue"
+font = ExtResource("2_j4okt")
+font_size = 100
+outline_size = 0
+
+[node name="Area3D" type="Area3D" parent="ContinueButton" unique_id=2063448843 groups=["button_group"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContinueButton/Area3D" unique_id=1776496277]
+transform = Transform3D(0.15, 0, 0, 0, 0.05, 0, 0, 0, 0.01, 0, 0, 0)
+shape = SubResource("BoxShape3D_crtqp")
+
+[node name="ExitButton" type="Node3D" parent="." unique_id=1029565633]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -0.09, 0)
+script = ExtResource("4_crtqp")
+
+[node name="Label3D" type="Label3D" parent="ExitButton" unique_id=331560061]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+render_priority = 1
+text = "Exit to Menu"
+font = ExtResource("2_j4okt")
+font_size = 100
+outline_size = 0
+
+[node name="Area3D" type="Area3D" parent="ExitButton" unique_id=1929011773 groups=["button_group"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitButton/Area3D" unique_id=1234119322]
+transform = Transform3D(0.35, 0, 0, 0, 0.05, 0, 0, 0, 0.01, 0, 0, 0)
+shape = SubResource("BoxShape3D_crtqp")

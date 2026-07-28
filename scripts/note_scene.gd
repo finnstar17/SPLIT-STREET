@@ -78,10 +78,10 @@ func enable_note(bool_thing : bool):
 		note_mesh.set_surface_override_material(0, idle_note)
 
 func _process(_delta: float) -> void:
-	if is_hovering == true:
-		enable_note(true)
-	else:
-		enable_note(false)
+	#if is_hovering == true:
+	#	enable_note(true)
+	#else:
+	#	enable_note(false)
 	if Input.is_action_pressed(ACTION_MAP[line]):
 		enable_note(true)
 	if Input.is_action_just_released(ACTION_MAP[line]):

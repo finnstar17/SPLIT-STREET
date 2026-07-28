@@ -2,11 +2,11 @@ extends Node
 
 # all autoload variables
 
-var song_path : String
-var current_song : String
-var current_speed : float
-var quarter_note : float
-var current_accuracy : int
+var song_path = ""
+var current_song = ""
+var current_speed = 0.0
+var quarter_note = 0.0
+var current_accuracy = 0
 var current_note_number = 0
 var current_combo = 0
 var current_bar = 0
@@ -44,3 +44,29 @@ func load_chart(path : String):
 		var error = json.parse(json_string)
 		if error == OK:
 			return json.data
+
+func reset(): # because im highkey
+	current_song = ""
+	current_speed = 0.0
+	quarter_note = 0.0
+	current_accuracy = 0
+	current_note_number = 0
+	current_combo = 0
+	current_bar = 0
+	bar_detected = 0
+	score = 0
+
+	current_time = ""
+	full_length = "0:00"
+	time_in_sec = 0
+	length_in_sec = 0
+
+	perfects = 0
+	greats = 0
+	goods = 0
+	oks = 0
+	misseds = 0
+
+	delta = 0.0
+	started = false
+	congrats = false

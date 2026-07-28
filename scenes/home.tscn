@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://brtrk84aqoddc" path="res://scripts/very_complex_scripts/play_button.gd" id="5_mahjx"]
 [ext_resource type="AudioStream" uid="uid://3m5ohmm2n64s" path="res://music_related/roblox-congrats.mp3" id="5_uhids"]
 [ext_resource type="Script" uid="uid://ckgbqts5wprr4" path="res://scripts/very_complex_scripts/settings_button.gd" id="6_mahjx"]
+[ext_resource type="PackedScene" uid="uid://b7bcch1hbd71h" path="res://scenes/more_complex_scenes/pause_menu.tscn" id="8_4fycn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u4wd2"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -28,12 +29,14 @@ glow_blend_mode = 2
 glow_map_strength = 0.5
 
 [sub_resource type="LabelSettings" id="LabelSettings_uhids"]
+line_spacing = 0.0
 font = ExtResource("3_reixx")
-font_size = 60
+font_size = 120
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uhids"]
 
 [node name="Home" type="Node3D" unique_id=850447393]
+process_mode = 3
 script = ExtResource("1_krot7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=956348587]
@@ -70,6 +73,7 @@ offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_uhids")
+horizontal_alignment = 1
 
 [node name="MainMenu" parent="." unique_id=357816684 instance=ExtResource("3_w18ys")]
 
@@ -111,3 +115,6 @@ shape = SubResource("BoxShape3D_uhids")
 
 [node name="Hooray" type="AudioStreamPlayer" parent="." unique_id=2039921796]
 stream = ExtResource("5_uhids")
+
+[node name="PauseMenu" parent="." unique_id=1993020906 instance=ExtResource("8_4fycn")]
+visible = false

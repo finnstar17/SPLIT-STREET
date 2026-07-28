@@ -66,12 +66,12 @@ func _process(_delta: float) -> void:
 				if FileAccess.file_exists(path):
 					if old_song != current_song:
 						player.stream = current_song
-						player.play(20.0)
-						player.volume_db = -80.0
+						player.play(30.0)
+						player.volume_db = -40.0
 						fade_volume(0.0)
 				if FileAccess.file_exists(chart_path):
 					MainLoader.song_path = chart_path
 
 func fade_volume(volume : float):
 	var volume_tween = player.create_tween()
-	volume_tween.tween_property(player, "volume_db", volume, 1)
+	volume_tween.tween_property(player, "volume_db", volume, 0.5)
