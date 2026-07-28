@@ -11,7 +11,7 @@ SPLIT STREET is a three-dimensional rhythm game built in Godot that, unlike trad
 
 ### Downloading for Contributors and for Debugging
 **Requirements:**
- 1. Godot Engine v4.2+ (https://godotengine.org/)
+ 1. Godot Engine v4.6.3+ (https://godotengine.org/)
  2. Git (https://git-scm.com/install/windows)
 **Cloning the Repository**
  1. Open Git Bash.
@@ -41,18 +41,22 @@ You're all set! Now you can open the project in your Godot Engine.
     - Under regular notes, hold notes are to be interacted with by holding the button in its corresponding lane in order to hit it.
 
  3. Climb Notes
-    - These notes are tricky. Once hit in its target zone, it will redirect itself to move to the opposite lane it is from.
-      (e.g. from bottom to top and vice versa)
+    - These notes are tricky. Once hit in its target zone, it will redirect itself to move to the opposite lane it is from
+      (e.g. from bottom to top and vice versa) and will need to be hit again.
+
+ 4. Bounce Notes
+    - Once hit, they will bounce and will require for it to be hit again by the same input.
 
 ## Credits
-Due to my limited time, I decided to use songs I thought would sound nice for a project like this.
+Due to my limited time, I decided to use elements I thought would sound nice for a project like this.
 
 - Koraii - **Trick Room**
+- meganeko - **nano love**
 - Metaroom - **CARLOT32 (METAROOM REMIX)**
 - siinsticker - Masterpiece font (main font)
 
 ## In Regards to AI Usage
-AI was used minimally in this project for efficiency in charting. I originally charted the first half of Trick Room because it highlights the main mechanic, Climb notes. Due to the game's method in charting songs, I decided to skip manually changing each bar by having AI assist me in shifting those simple numbers by 32.
+AI was used minimally in this project for efficiency in charting. I originally charted the second half of Trick Room because it highlights the main mechanic, Climb notes. Due to the game's method in charting songs, I decided to skip manually changing each bar by having AI assist me in shifting those simple numbers by 32.
 
 ## License
 This project is licensed under the MIT License - see [MIT License](split-street/LICENSE) for more details.
