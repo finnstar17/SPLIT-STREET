@@ -16,7 +16,6 @@ extends Node3D
 @onready var misseds = $PreviewStats/Stats/RealAccuracy/MissedLabel
 
 var audio
-var charts = "res://music_related/charts/"
 
 var tempo
 var bar_spacing
@@ -32,7 +31,7 @@ var artist
 var cover
 
 func _ready() -> void:
-	var song = charts.path_join("nano love.json")
+	var song = MainLoader.song_path
 	load_song(song)
 
 func _process(delta: float) -> void:

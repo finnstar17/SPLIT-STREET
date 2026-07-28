@@ -33,6 +33,12 @@ surface_material_override/0 = ExtResource("3_oiddk")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_0klua")
 
+[node name="MobileHit" type="Area3D" parent="." unique_id=475707673]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MobileHit" unique_id=1777842192]
+transform = Transform3D(0.35, 0, 0, 0, 0.6, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("BoxShape3D_0klua")
+
 [node name="Label3D" type="Label3D" parent="." unique_id=334410230]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.2, 0)
 billboard = 1

@@ -2,6 +2,7 @@ extends Node
 
 # all autoload variables
 
+var song_path : String
 var current_song : String
 var current_speed : float
 var quarter_note : float

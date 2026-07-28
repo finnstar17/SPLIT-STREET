@@ -61,6 +61,7 @@ func _process(_delta: float) -> void:
 			song.position.z = lerp(song.position.z, 0.0, mapped_dist)
 			if distance < 0.1:
 				var path = "res://music_related/music".path_join(song.name) + ".mp3"
+				var chart_path = "res://music_related/charts".path_join(song.name) + ".json"
 				var current_song = load(path)
 				if FileAccess.file_exists(path):
 					if old_song != current_song:
@@ -68,6 +69,8 @@ func _process(_delta: float) -> void:
 						player.play(20.0)
 						player.volume_db = -80.0
 						fade_volume(0.0)
+				if FileAccess.file_exists(chart_path):
+					MainLoader.song_path = chart_path
 
 func fade_volume(volume : float):
 	var volume_tween = player.create_tween()

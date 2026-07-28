@@ -6,6 +6,7 @@ var active_note = preload("res://materials/note_materials/active_note_material.t
 @export_range(0, 8) var line : int
 @onready var note_mesh = $NoteMesh
 @onready var label = $Label3D
+@onready var area_a = $MobileHit
 @onready var note_effect = preload("res://scenes/note_effect.tscn")
 @onready var climb_note = preload("res://scenes/more_complex_scenes/climb_note_scene.tscn")
 @onready var bounce_note = preload("res://scenes/more_complex_scenes/bounce_note_scene.tscn")
@@ -17,6 +18,8 @@ var note_just_hit : int
 var current_note : Node3D
 var last_note : Node3D
 var just_missed = false
+var is_hovering = false
+var pressing = false
 const ACTION_MAP = {
 	1: "D_Input",
 	2: "F_Input",
@@ -54,18 +57,35 @@ func _ready():
 	var tween_transparency = tween.tween_property(label, "transparency", 1, 4)
 	tween_transparency.finished.connect(func(): label.queue_free())
 
+	area_a.input_event.connect(func(_camera, event, _position, _normal, _shape_idx):
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				is_hovering = true
+			else:
+				is_hovering = false
+	)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed(ACTION_MAP[line]):
+func enable_note(bool_thing : bool):
+	if bool_thing:
 		is_collecting = true
 		general_collecting = true
 
 		note_mesh.set_surface_override_material(0, active_note)
-	elif Input.is_action_just_released(ACTION_MAP[line]):
+	else:
 		is_collecting = false
 		general_collecting = false
 
 		note_mesh.set_surface_override_material(0, idle_note)
+
+func _process(_delta: float) -> void:
+	if is_hovering == true:
+		enable_note(true)
+	else:
+		enable_note(false)
+	if Input.is_action_pressed(ACTION_MAP[line]):
+		enable_note(true)
+	if Input.is_action_just_released(ACTION_MAP[line]):
+		enable_note(false)
 
 	if current_note and is_collecting:
 		is_collecting = false

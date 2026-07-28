@@ -148,6 +148,7 @@ shape = SubResource("BoxShape3D_yxpmw")
 [node name="Left" type="Node3D" parent="Buttons" unique_id=648805391]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
 script = ExtResource("5_rtea6")
+direction = -1
 
 [node name="Label3D" type="Label3D" parent="Buttons/Left" unique_id=52158921]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -164,6 +165,8 @@ shape = SubResource("BoxShape3D_yxpmw")
 
 [node name="Right" type="Node3D" parent="Buttons" unique_id=1442457590]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+script = ExtResource("5_rtea6")
+direction = 1
 
 [node name="Label3D" type="Label3D" parent="Buttons/Right" unique_id=836463674]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -179,3 +182,4 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_yxpmw")
 
 [node name="AllSongs" type="Node3D" parent="." unique_id=499147616]
+metadata/song_position = 0
