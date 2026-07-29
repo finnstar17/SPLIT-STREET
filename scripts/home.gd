@@ -14,6 +14,7 @@ var finished = false
 var skip_intro = false
 var playing = false
 var paused = false
+var can_exit = true
 
 func _ready() -> void:
 	if not skip_intro:
@@ -94,7 +95,8 @@ func continue_game():
 			pause_menu.hide()
 
 func exit():
-	if MainLoader.game_mode == "in_game":
+	if MainLoader.game_mode == "in_game" and can_exit == true:
+		can_exit = false
 		fade(1)
 
 		await get_tree().create_timer(0.5).timeout
@@ -108,6 +110,7 @@ func exit():
 		MainLoader.game_mode = "menu"
 		MainLoader.reset()
 		playing = false
+		can_exit = true
 
 		var new_select = song_select.instantiate()
 		add_child(new_select)

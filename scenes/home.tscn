@@ -31,7 +31,7 @@ glow_map_strength = 0.5
 [sub_resource type="LabelSettings" id="LabelSettings_uhids"]
 line_spacing = 0.0
 font = ExtResource("3_reixx")
-font_size = 120
+font_size = 60
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uhids"]
 
