@@ -105,7 +105,6 @@ process_material = SubResource("ParticleProcessMaterial_yxpmw")
 draw_pass_1 = SubResource("SphereMesh_rtea6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=210294259]
-volume_db = -80.0
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=182988474]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -2)

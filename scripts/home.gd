@@ -11,7 +11,7 @@ extends Node3D
 var started = false
 var can_play = false
 var finished = false
-var skip_intro = true
+var skip_intro = false
 var playing = false
 var paused = false
 
@@ -75,8 +75,8 @@ func _process(_delta: float) -> void:
 		finished = true
 		fade(1)
 		await get_tree().create_timer(2).timeout
-		hooray.play()
-		intro_text.text = "thanks for playing the demo!"
+		finished = false
+		exit()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):

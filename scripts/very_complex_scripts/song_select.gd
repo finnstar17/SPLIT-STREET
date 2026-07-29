@@ -4,6 +4,7 @@ extends Node3D
 @onready var player = $AudioStreamPlayer
 var template = preload("res://scenes/select_template.tscn")
 var all_jasons
+var song_playing = false
 
 func get_jasons(folder): # get it haha no okay :(
 	var matched_files: Array[String] = []
@@ -49,6 +50,10 @@ func _ready() -> void:
 		chart = null # i dunno yo
 		
 		index += 1
+
+	await get_tree().create_timer(0.2).timeout
+
+	song_playing = true
 
 func _process(_delta: float) -> void:
 	var old_song = player.stream
